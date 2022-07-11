@@ -1,10 +1,12 @@
 package com.tiamosu.fly.demo.ui.fragment
 
+import androidx.core.view.updateLayoutParams
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentHomeBinding
 import com.tiamosu.fly.demo.base.BaseFragment
 import com.tiamosu.fly.demo.kts.init
 import com.tiamosu.fly.demo.ui.adapter.HomeAdapter
+import com.tiamosu.fly.kts.statusBarHeight
 import com.tiamosu.fly.viewbinding.viewBinding
 
 /**
@@ -20,6 +22,7 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun initView() {
+        binding?.homeViewTitleBar?.updateLayoutParams { height = statusBarHeight }
         binding?.homeRv?.init(bindAdapter = adapter)
     }
 
