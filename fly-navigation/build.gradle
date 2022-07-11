@@ -1,0 +1,13 @@
+ext {
+    artifactId = "jfly-navigation"
+}
+apply {
+    from "${rootDir.path}/config/config_lib.gradle"
+}
+
+dependencies {
+    implementation project(path: ':fly-core')
+    api Deps.navigation_fragment_ktx
+}
+
+apply from: "${rootDir.path}/publish/publish.gradle"

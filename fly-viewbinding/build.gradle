@@ -1,0 +1,19 @@
+ext {
+    artifactId = "jfly-viewbinding"
+}
+apply {
+    from "${rootDir.path}/config/config_lib.gradle"
+}
+
+android {
+    buildFeatures {
+        viewBinding true
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation project(path: ':fly-core')
+}
+
+apply from: "${rootDir.path}/publish/publish.gradle"

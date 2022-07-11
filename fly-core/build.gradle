@@ -1,0 +1,23 @@
+ext {
+    artifactId = "jfly-core"
+}
+apply {
+    from "${rootDir.path}/config/config_lib.gradle"
+}
+
+dependencies {
+    //androidx
+    api Deps.appcompat
+    api Deps.fragment
+    api Deps.core_ktx
+
+    //lifecycle
+    api Deps.lifecycle_runtime_ktx
+    api Deps.lifecycle_livedata_ktx
+    api Deps.lifecycle_viewmodel_ktx
+
+    //utilcode
+    api Deps.utilcode
+}
+
+apply from: "${rootDir.path}/publish/publish.gradle"

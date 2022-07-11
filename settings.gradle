@@ -1,0 +1,6 @@
+rootProject.name = "Jetpack-Fly"
+
+include ':app'
+include ':fly-core'
+include ':fly-navigation'
+include ':fly-viewbinding'
