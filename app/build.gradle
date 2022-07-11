@@ -42,6 +42,7 @@ dependencies {
     implementation Deps.constraintlayout
     implementation Deps.viewpager2
     implementation Deps.recyclerview
+    implementation Deps.material
 
     //brvah
     implementation Deps.brvah

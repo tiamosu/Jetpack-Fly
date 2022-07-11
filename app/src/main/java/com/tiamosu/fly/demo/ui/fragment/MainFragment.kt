@@ -1,6 +1,7 @@
 package com.tiamosu.fly.demo.ui.fragment
 
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMainBinding
@@ -35,9 +36,38 @@ class MainFragment : BaseFragment() {
         )
     }
 
+    override fun initEvent() {
+        binding?.mainVp2?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                val id = when (position) {
+                    0 -> R.id.main_home
+                    1 -> R.id.main_search
+                    else -> R.id.main_view
+                }
+                binding?.mainNavigation?.selectedItemId = id
+            }
+        })
+
+        binding?.mainNavigation?.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.main_home -> switchFragment(0)
+                R.id.main_search -> switchFragment(1)
+                R.id.main_view -> switchFragment(2)
+            }
+            true
+        }
+    }
+
     override fun initObserver() {
         sharedViewModel.updateState.observe(this) {
             ToastUtils.showLong("状态：${if (it) "开启" else "关闭"}")
         }
+    }
+
+    /**
+     * 切换页面
+     */
+    private fun switchFragment(index: Int) {
+        binding?.mainVp2?.currentItem = index
     }
 }
