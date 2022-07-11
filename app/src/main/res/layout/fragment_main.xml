@@ -18,9 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@color/teal_700"
-            app:itemBackground="@color/teal_700"
-            app:itemIconTint="@color/teal_200"
-            app:itemTextColor="@color/white"
+            app:itemIconTint="@drawable/bottom_navigation_selector"
+            app:itemTextColor="@drawable/bottom_navigation_selector"
             app:menu="@menu/bottom_navigation" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
