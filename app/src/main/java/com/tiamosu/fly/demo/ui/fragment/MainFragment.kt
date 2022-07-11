@@ -1,6 +1,7 @@
 package com.tiamosu.fly.demo.ui.fragment
 
 import androidx.fragment.app.Fragment
+import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMainBinding
 import com.tiamosu.fly.demo.base.BaseFragment
@@ -32,5 +33,11 @@ class MainFragment : BaseFragment() {
             fragments = fragments,
             offscreenPageLimit = 1
         )
+    }
+
+    override fun initObserver() {
+        sharedViewModel.updateState.observe(this) {
+            ToastUtils.showLong("状态：${if (it) "开启" else "关闭"}")
+        }
     }
 }

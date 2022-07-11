@@ -12,7 +12,7 @@ object Android {
 object Versions {
     const val kotlin = "1.7.10"
     const val utilcode = "1.31.0"
-    const val immersionbar = "3.2.2"
+    const val brvah = "3.0.7"
 }
 
 object Deps {
@@ -39,4 +39,6 @@ object Deps {
     //utilcode：常用工具类库 https://github.com/Blankj/AndroidUtilCode
     const val utilcode = "com.blankj:utilcodex:${Versions.utilcode}"
 
+    //brvah
+    const val brvah = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Versions.brvah}"
 }
