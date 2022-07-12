@@ -16,9 +16,9 @@ allprojects {
 ```
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-core:1.0.2'          //（必选）
-implementation 'com.gitee.tiamosu:jfly-navigation:1.0.2'    //（可选）
-implementation 'com.gitee.tiamosu:jfly-viewbinding:1.0.2'   //（可选）
+implementation 'com.gitee.tiamosu:jfly-core:1.0.3'          //（必选）
+implementation 'com.gitee.tiamosu:jfly-navigation:1.0.3'    //（可选）
+implementation 'com.gitee.tiamosu:jfly-viewbinding:1.0.3'   //（可选）
 ```
 
 ## *特别感谢*
