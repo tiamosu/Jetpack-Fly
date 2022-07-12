@@ -11,7 +11,9 @@ import com.tiamosu.fly.kts.isValid
  * @author ti
  * @date 2022/7/12.
  */
-class NavHostKt(internal val context: Context, navHost: NavHost) : NavHost by navHost
+open class MyNavHost(override val navController: NavController) : NavHost
+
+class NavHostKt(internal val context: Context, navHost: MyNavHost) : NavHost by navHost
 
 /**
  * 从当前导航图导航到目标

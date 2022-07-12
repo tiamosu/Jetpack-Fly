@@ -17,6 +17,7 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
 
     private var isAnimationEnd = false      //转场动画加载完毕
     private var isCreateAnimation = false   //是否有执行转场动画
+    private var isLazyLoaded = false        //是否执行完懒加载函数
 
     fun onViewCreated() {
         iFlySupport.initFragment()
@@ -68,13 +69,15 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
 
     //延迟加载，防止动画还未执行完毕紧接着加载数据，导致页面渲染卡顿
     private fun startLazyLoadData() {
-        if (!fragment.isResumed || (isCreateAnimation && !isAnimationEnd)) return
+        if (!fragment.isResumed || (isCreateAnimation && !isAnimationEnd) || isLazyLoaded) return
+        isLazyLoaded = true
         iFlySupport.onLazyLoad()
     }
 
     fun onDestroyView() {
         isAnimationEnd = false
         isCreateAnimation = false
+        isLazyLoaded = false
         iFlySupport.removeCallbacks()
     }
 }

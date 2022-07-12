@@ -7,7 +7,9 @@ apply {
 
 dependencies {
     implementation project(path: ':fly-core')
-    api Deps.navigation_fragment_ktx
+    api(Deps.navigation_fragment_ktx) {
+        exclude group: 'androidx.navigation', module: "navigation-fragment"
+    }
 }
 
 apply from: "${rootDir.path}/publish/publish.gradle"

@@ -8,17 +8,24 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.*
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.blankj.utilcode.util.ActivityUtils
+
+val Fragment.navController: NavController
+    get() = NavHostFragment.findNavController(this)
+
+fun ComponentActivity.navController(@IdRes viewId: Int): NavController {
+    return findNavController(viewId)
+}
+
+val View.navController: NavController
+    get() = findNavController()
 
 /**
  * 获取 navigator 实例，执行 [NavHostKt] 中的相关操作
  */
-val Fragment.navigator
-    get() = NavHostKt(requireContext(), object : NavHost {
-        override val navController: NavController
-            get() = findNavController()
-    })
+val Fragment.navigator: NavHostKt
+    get() = NavHostKt(requireContext(), object : MyNavHost(navController) {})
 
 /**
  * 获取 navigator 实例，执行 [NavHostKt] 中的相关操作
@@ -26,20 +33,14 @@ val Fragment.navigator
  * @param viewId 控件id
  */
 fun ComponentActivity.navigator(@IdRes viewId: Int): NavHostKt {
-    return NavHostKt(this, object : NavHost {
-        override val navController: NavController
-            get() = findNavController(viewId)
-    })
+    return NavHostKt(this, object : MyNavHost(navController(viewId)) {})
 }
 
 /**
  * 获取 navigator 实例，执行 [NavHostKt] 中的相关操作
  */
-val View.navigator
-    get() = NavHostKt(context, object : NavHost {
-        override val navController: NavController
-            get() = findNavController()
-    })
+val View.navigator: NavHostKt
+    get() = NavHostKt(context, object : MyNavHost(navController) {})
 
 
 /* ====================== 启动 Fragment start======================*/
