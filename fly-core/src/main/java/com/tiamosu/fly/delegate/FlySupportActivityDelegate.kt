@@ -22,7 +22,7 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
         activity.lifecycle.addObserver(this)
     }
 
-    override fun onCreate(owner: LifecycleOwner) {
+    fun onCreate() {
         iFlySupport.setContentView()
         iFlySupport.initActivity()
     }
@@ -67,11 +67,6 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
         }
     }
 
-    override fun onDestroy(owner: LifecycleOwner) {
-        owner.lifecycle.removeObserver(this)
-        iFlySupport.removeCallbacks()
-    }
-
     private fun isShouldHideKeyboard(view: View?, event: MotionEvent): Boolean {
         if (view is EditText) {
             val l = intArrayOf(0, 0)
@@ -113,5 +108,10 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
             return dispatchBackPressedEvent(parentFragment as? IFlyBackCallback)
         }
         return false
+    }
+
+    override fun onDestroy(owner: LifecycleOwner) {
+        owner.lifecycle.removeObserver(this)
+        iFlySupport.removeCallbacks()
     }
 }

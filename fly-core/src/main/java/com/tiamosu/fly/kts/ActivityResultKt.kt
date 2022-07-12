@@ -11,6 +11,13 @@ import com.tiamosu.fly.FlySupportFragment
  * @date 2022/7/7.
  */
 
+/**
+ * 启动 Activity 为返回结果
+ *
+ * @param block 额外配置 [Intent]
+ * @param options 额外配置 [ActivityOptionsCompat]
+ * @param callback 结果回调
+ */
 inline fun <reified T> FlySupportActivity.startForActivityResult(
     noinline block: Intent.() -> Unit = {},
     options: ActivityOptionsCompat? = null,
@@ -19,6 +26,13 @@ inline fun <reified T> FlySupportActivity.startForActivityResult(
     startDelegate.startForActivityResult(T::class.java, block, options, callback)
 }
 
+/**
+ * 启动 Activity 为返回结果
+ *
+ * @param intent 意图
+ * @param options 额外配置 [ActivityOptionsCompat]
+ * @param callback 结果回调
+ */
 fun FlySupportActivity.startForActivityResult(
     intent: Intent,
     options: ActivityOptionsCompat? = null,
@@ -27,6 +41,13 @@ fun FlySupportActivity.startForActivityResult(
     startDelegate.startForActivityResult(intent, options, callback)
 }
 
+/**
+ * 启动 Activity 为返回结果
+ *
+ * @param block 额外配置 [Intent]
+ * @param options 额外配置 [ActivityOptionsCompat]
+ * @param callback 结果回调
+ */
 inline fun <reified T> FlySupportFragment.startForActivityResult(
     noinline block: Intent.() -> Unit = {},
     options: ActivityOptionsCompat? = null,
@@ -35,6 +56,13 @@ inline fun <reified T> FlySupportFragment.startForActivityResult(
     startDelegate.startForActivityResult(T::class.java, block, options, callback)
 }
 
+/**
+ * 启动 Activity 为返回结果
+ *
+ * @param intent 意图
+ * @param options 额外配置 [ActivityOptionsCompat]
+ * @param callback 结果回调
+ */
 fun FlySupportFragment.startForActivityResult(
     intent: Intent,
     options: ActivityOptionsCompat? = null,

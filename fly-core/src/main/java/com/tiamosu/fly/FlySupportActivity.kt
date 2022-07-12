@@ -22,6 +22,11 @@ abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
     final override val bundle: Bundle?
         get() = intent.extras
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        delegate.onCreate()
+    }
+
     /**
      * 设置布局视图
      */

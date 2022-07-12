@@ -1,12 +1,17 @@
 package com.tiamosu.fly.demo.ui.fragment
 
+import android.util.Log
 import androidx.core.view.updateLayoutParams
+import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.IntentUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentHomeBinding
 import com.tiamosu.fly.demo.base.BaseFragment
 import com.tiamosu.fly.demo.data.HomeEntity
 import com.tiamosu.fly.demo.kts.init
 import com.tiamosu.fly.demo.ui.adapter.HomeAdapter
+import com.tiamosu.fly.kts.startForActivityResult
 import com.tiamosu.fly.kts.statusBarHeight
 import com.tiamosu.fly.navigation.navigator
 import com.tiamosu.fly.navigation.start
@@ -33,6 +38,10 @@ class HomeFragment : BaseFragment() {
         adapter.setOnItemClickListener { _, _, position ->
             val entity = adapter.data[position]
             when (entity.type) {
+                0 -> startForActivityResult(IntentUtils.getLaunchAppDetailsSettingsIntent(AppUtils.getAppPackageName())) {
+                    Log.e("susu", "result:$it")
+                    ToastUtils.showLong(it.toString())
+                }
                 1 -> navigator.start(R.id.aFragment)
             }
         }
@@ -40,7 +49,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onLazyLoad() {
         mutableListOf<HomeEntity>().apply {
-            add(HomeEntity(0, "你好啊"))
+            add(HomeEntity(0, "ActivityResult"))
             add(HomeEntity(1, "Navigation"))
         }.let(adapter::setList)
     }
