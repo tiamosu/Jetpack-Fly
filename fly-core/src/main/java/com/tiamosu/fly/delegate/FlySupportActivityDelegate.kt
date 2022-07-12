@@ -4,11 +4,11 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import com.tiamosu.fly.FlySupportActivity
 
 /**
  * @author ti
@@ -16,7 +16,7 @@ import com.tiamosu.fly.FlySupportActivity
  */
 class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
     DefaultLifecycleObserver {
-    private val activity by lazy { checkNotNull(iFlySupport as? FlySupportActivity) }
+    private val activity by lazy { checkNotNull(iFlySupport as? FragmentActivity) }
 
     init {
         activity.lifecycle.addObserver(this)

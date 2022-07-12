@@ -5,15 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.tiamosu.fly.FlySupportFragment
 
 /**
  * @author ti
  * @date 2022/7/12.
  */
 class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
-    private val fragment by lazy { checkNotNull(iFlySupport as? FlySupportFragment) }
+    private val fragment by lazy { checkNotNull(iFlySupport as? Fragment) }
 
     private var isAnimationEnd = false      //转场动画加载完毕
     private var isCreateAnimation = false   //是否有执行转场动画
