@@ -55,5 +55,5 @@ interface ScenesAction {
      * 懒加载处理，页面可见时执行
      * 若是[FlySupportFragment]，并且保证在转场动画执行之后[FlySupportFragment.onCreateAnimation]
      */
-    fun lazyLoadData()
+    fun onLazyLoad()
 }

@@ -33,6 +33,6 @@ abstract class BaseActivity : FlySupportActivity() {
     override fun loadData() {
     }
 
-    override fun lazyLoadData() {
+    override fun onLazyLoad() {
     }
 }

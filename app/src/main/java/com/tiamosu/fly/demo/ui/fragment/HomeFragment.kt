@@ -38,7 +38,7 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    override fun lazyLoadData() {
+    override fun onLazyLoad() {
         mutableListOf<HomeEntity>().apply {
             add(HomeEntity(0, "你好啊"))
             add(HomeEntity(1, "Navigation"))

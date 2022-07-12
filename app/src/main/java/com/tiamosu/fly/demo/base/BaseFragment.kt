@@ -29,8 +29,8 @@ abstract class BaseFragment : FlySupportFragment() {
     override fun loadData() {
     }
 
-    override fun lazyLoadData() {
-        Log.e("lifecycle", "${this::class.java.simpleName} --- lazyLoadData")
+    override fun onLazyLoad() {
+        Log.e("lifecycle", "${this::class.java.simpleName} --- onLazyLoad")
     }
 
     override fun onPause() {

@@ -1,22 +1,19 @@
 package com.tiamosu.fly
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.tiamosu.fly.action.BundleAction
-import com.tiamosu.fly.action.HandlerAction
-import com.tiamosu.fly.action.KeyboardAction
-import com.tiamosu.fly.action.ScenesAction
+import com.tiamosu.fly.delegate.FlySupportActivityDelegate
+import com.tiamosu.fly.delegate.IFlySupportActivity
 
 /**
  * @author ti
  * @date 2022/7/6.
  */
-abstract class FlySupportActivity : AppCompatActivity(),
-    ScenesAction, BundleAction, KeyboardAction, HandlerAction {
+abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
+    private val delegate by lazy { FlySupportActivityDelegate(this) }
 
     final override fun getContext() = this
 
@@ -25,42 +22,38 @@ abstract class FlySupportActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView()
-        initActivity()
+        delegate.onCreate()
     }
 
     /**
      * 设置布局视图
      */
-    protected open fun setContentView(): View? {
-        if (getLayoutId() > 0) {
-            setContentView(getLayoutId())
-        }
-        return null
+    override fun setContentView(): View? {
+        return delegate.setContentView()
     }
 
     /**
      * 相关函数初始化
      */
-    protected open fun initActivity() {
-        initParameter(bundle)
-        initView()
-        initEvent()
-        initObserver()
-        loadData()
-
-        lifecycleScope.launchWhenResumed { lazyLoadData() }
+    override fun initActivity() {
+        delegate.initActivity()
     }
 
     /**
      * 点击空白区域，默认隐藏软键盘
      */
-    protected open fun clickBlankArea() {
-        hideKeyboard(getContext())
+    override fun clickBlankArea() {
+        delegate.clickBlankArea()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        //设置为当前的 Intent，避免 Activity 被杀死后重启 Intent 还是最原先的那个
+        setIntent(intent)
     }
 
     override fun onDestroy() {
-        removeCallbacks()
+        delegate.onDestroy()
         super.onDestroy()
     }
 
@@ -68,25 +61,19 @@ abstract class FlySupportActivity : AppCompatActivity(),
      * 点击空白区域隐藏软键盘
      */
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (ev.action == MotionEvent.ACTION_DOWN
-            && isShouldHideKeyboard(currentFocus, ev)
-        ) {
-            clickBlankArea()
-        }
+        delegate.dispatchTouchEvent(ev)
         return super.dispatchTouchEvent(ev)
     }
 
-    private fun isShouldHideKeyboard(view: View?, event: MotionEvent): Boolean {
-        if (view is EditText) {
-            val l = intArrayOf(0, 0)
-            view.getLocationOnScreen(l)
-            val left = l[0]
-            val top = l[1]
-            val bottom = top + view.height
-            val right = left + view.width
-            return !(event.x > left && event.x < right
-                    && event.y > top && event.y < bottom)
-        }
-        return false
+    /**
+     * 不建议重写该函数，请使用 [onBackPressedSupport] 代替
+     */
+    override fun onBackPressed() {
+        delegate.onBackPressed()
     }
+
+    /**
+     * 页面回退处理
+     */
+    override fun onBackPressedSupport() = false
 }
