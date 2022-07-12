@@ -9,4 +9,14 @@
         android:id="@+id/mainFragment"
         android:name="com.tiamosu.fly.demo.ui.fragment.MainFragment"
         tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/aFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.AFragment"
+        tools:layout="@layout/fragment_a" />
+
+    <fragment
+        android:id="@+id/bFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.BFragment"
+        tools:layout="@layout/fragment_b" />
 </navigation>

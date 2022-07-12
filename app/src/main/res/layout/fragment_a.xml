@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="A"
+        android:textColor="@color/teal_200"
+        android:textSize="50sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/a_btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:text="页面跳转" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/a_btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="页面回退" />
+</FrameLayout>
