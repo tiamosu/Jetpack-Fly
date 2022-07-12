@@ -33,8 +33,7 @@ class MainFragment : BaseFragment() {
     override fun initView() {
         binding?.mainVp2?.init(
             fragment = this,
-            fragments = fragments,
-            isUserInputEnabled = false
+            fragments = fragments
         )
     }
 
@@ -70,7 +69,7 @@ class MainFragment : BaseFragment() {
      * 切换页面
      */
     private fun switchFragment(index: Int) {
-        binding?.mainVp2?.currentItem = index
+        binding?.mainVp2?.setCurrentItem(index, false)
     }
 
     override fun onBackPressedSupport(): Boolean {
