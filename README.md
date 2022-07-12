@@ -8,7 +8,7 @@ allprojects {
         google()
         mavenCentral()
 
-        //或者 sonatype
+        // sonatype
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         maven { url "https://s01.oss.sonatype.org/content/repositories/releases" }
     }
