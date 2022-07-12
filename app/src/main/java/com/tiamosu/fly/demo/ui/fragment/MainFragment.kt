@@ -34,6 +34,7 @@ class MainFragment : BaseFragment() {
         binding?.mainVp2?.init(
             fragment = this,
             fragments = fragments,
+            isUserInputEnabled = false
         )
     }
 
