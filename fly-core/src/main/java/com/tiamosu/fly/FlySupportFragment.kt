@@ -1,10 +1,12 @@
 package com.tiamosu.fly
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.tiamosu.fly.delegate.FlySupportFragmentDelegate
 import com.tiamosu.fly.delegate.IFlySupportFragment
@@ -15,12 +17,18 @@ import com.tiamosu.fly.delegate.IFlySupportFragment
  */
 abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
     private val delegate by lazy { FlySupportFragmentDelegate(this) }
-    private val fragmentActivity by lazy { requireActivity() }
 
-    override fun getContext() = fragmentActivity
+    protected lateinit var activity: AppCompatActivity
+
+    override fun getContext() = activity
 
     override val bundle: Bundle?
         get() = arguments
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity = context as AppCompatActivity
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

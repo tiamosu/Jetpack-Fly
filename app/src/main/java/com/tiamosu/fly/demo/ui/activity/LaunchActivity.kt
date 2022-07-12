@@ -26,8 +26,8 @@ class LaunchActivity : BaseActivity() {
 
     override fun initEvent() {
         binding?.launchBtnStart?.clickNoRepeat {
-            sharedViewModel.updateState.value = true
             ActivityUtils.startActivity(MainActivity::class.java)
+            ActivityUtils.finishActivity(this)
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.tiamosu.fly.demo.ui.fragment
 
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMainBinding
@@ -68,5 +70,21 @@ class MainFragment : BaseFragment() {
      */
     private fun switchFragment(index: Int) {
         binding?.mainVp2?.currentItem = index
+    }
+
+    override fun onBackPressedSupport(): Boolean {
+        if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+            ActivityUtils.finishAllActivities()
+        } else {
+            TOUCH_TIME = System.currentTimeMillis()
+            Toast.makeText(context, "再按一次退出", Toast.LENGTH_LONG).show()
+        }
+        return true
+    }
+
+    companion object {
+        // 再点一次退出程序时间设置
+        private const val WAIT_TIME = 2000L
+        private var TOUCH_TIME: Long = 0
     }
 }
