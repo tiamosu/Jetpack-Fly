@@ -9,7 +9,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.*
 import androidx.navigation.NavDestination.ClassType
 import androidx.navigation.fragment.DialogFragmentNavigator.Destination
@@ -27,14 +26,12 @@ class DialogFragmentNavigator internal constructor(
 ) : Navigator<Destination>() {
     private var dialogCount = 0
     private val observer by lazy {
-        LifecycleEventObserver { source: LifecycleOwner, event: Lifecycle.Event ->
+        LifecycleEventObserver { source, event ->
             if (event == Lifecycle.Event.ON_STOP) {
                 val dialogFragment = source as? DialogFragment ?: return@LifecycleEventObserver
                 if (!dialogFragment.requireDialog().isShowing) {
-                    try {
+                    kotlin.runCatching {
                         NavHostFragment.findNavController(dialogFragment).popBackStack()
-                    } catch (e: Exception) {
-                        e.printStackTrace()
                     }
                 }
             }
@@ -51,10 +48,8 @@ class DialogFragmentNavigator internal constructor(
         }
         fragmentManager.findFragmentByTag(DIALOG_TAG + --dialogCount)?.apply {
             lifecycle.removeObserver(observer)
-            try {
+            kotlin.runCatching {
                 (this as? DialogFragment)?.dismiss()
-            } catch (e: Exception) {
-                e.printStackTrace()
             }
         }
         return true
@@ -72,7 +67,7 @@ class DialogFragmentNavigator internal constructor(
             Log.i(TAG, "Ignoring navigate() call: FragmentManager has already saved its state")
             return null
         }
-        try {
+        kotlin.runCatching {
             var className = destination.className
             if (className[0] == '.') {
                 className = context.packageName + className
@@ -86,8 +81,6 @@ class DialogFragmentNavigator internal constructor(
                 frag.lifecycle.addObserver(observer)
                 frag.show(fragmentManager, DIALOG_TAG + dialogCount++)
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
         return destination
     }

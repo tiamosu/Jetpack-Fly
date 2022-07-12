@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.tiamosu.fly.FlySupportActivity
 
@@ -12,10 +14,15 @@ import com.tiamosu.fly.FlySupportActivity
  * @author ti
  * @date 2022/7/12.
  */
-class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) {
+class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
+    DefaultLifecycleObserver {
     private val activity by lazy { checkNotNull(iFlySupport as? FlySupportActivity) }
 
-    fun onCreate() {
+    init {
+        activity.lifecycle.addObserver(this)
+    }
+
+    override fun onCreate(owner: LifecycleOwner) {
         iFlySupport.setContentView()
         iFlySupport.initActivity()
     }
@@ -60,7 +67,8 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) {
         }
     }
 
-    fun onDestroy() {
+    override fun onDestroy(owner: LifecycleOwner) {
+        owner.lifecycle.removeObserver(this)
         iFlySupport.removeCallbacks()
     }
 

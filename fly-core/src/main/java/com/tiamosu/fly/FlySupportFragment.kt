@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.tiamosu.fly.delegate.ActivityResultDelegate
 import com.tiamosu.fly.delegate.FlySupportFragmentDelegate
 import com.tiamosu.fly.delegate.IFlySupportFragment
 
@@ -17,6 +18,7 @@ import com.tiamosu.fly.delegate.IFlySupportFragment
  */
 abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
     private val delegate by lazy { FlySupportFragmentDelegate(this) }
+    val startDelegate by lazy { ActivityResultDelegate(this) }
 
     protected lateinit var activity: AppCompatActivity
 

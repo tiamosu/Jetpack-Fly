@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.tiamosu.fly.delegate.ActivityResultDelegate
 import com.tiamosu.fly.delegate.FlySupportActivityDelegate
 import com.tiamosu.fly.delegate.IFlySupportActivity
 
@@ -14,16 +15,12 @@ import com.tiamosu.fly.delegate.IFlySupportActivity
  */
 abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
     private val delegate by lazy { FlySupportActivityDelegate(this) }
+    val startDelegate by lazy { ActivityResultDelegate(this) }
 
     final override fun getContext() = this
 
     final override val bundle: Bundle?
         get() = intent.extras
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        delegate.onCreate()
-    }
 
     /**
      * 设置布局视图
@@ -50,11 +47,6 @@ abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
         super.onNewIntent(intent)
         //设置为当前的 Intent，避免 Activity 被杀死后重启 Intent 还是最原先的那个
         setIntent(intent)
-    }
-
-    override fun onDestroy() {
-        delegate.onDestroy()
-        super.onDestroy()
     }
 
     /**
