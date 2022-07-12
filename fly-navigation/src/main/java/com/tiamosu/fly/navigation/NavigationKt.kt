@@ -153,7 +153,7 @@ private fun NavHostKt.startNav(
             resId = resId,
             args = args,
             navOptions = navOptions {
-                anim { applyAnimDefault() }
+                anim { applyAnimSlide() }
                 popUpTo(popUpToId) { this.inclusive = inclusive }
                 launchSingleTop = singleTop
                 apply(builder)
