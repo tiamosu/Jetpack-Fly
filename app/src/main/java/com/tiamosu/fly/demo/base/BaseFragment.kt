@@ -5,14 +5,14 @@ import android.util.Log
 import com.tiamosu.fly.FlySupportFragment
 import com.tiamosu.fly.demo.bridge.SharedViewModel
 import com.tiamosu.fly.kts.immersionBar
-import com.tiamosu.fly.kts.lazyAppViewModel
+import com.tiamosu.fly.kts.appViewModel
 
 /**
  * @author ti
  * @date 2022/7/7.
  */
 abstract class BaseFragment : FlySupportFragment() {
-    val sharedViewModel by lazyAppViewModel<SharedViewModel>()
+    val sharedViewModel by appViewModel<SharedViewModel>()
 
     override fun initParameter(bundle: Bundle?) {
     }

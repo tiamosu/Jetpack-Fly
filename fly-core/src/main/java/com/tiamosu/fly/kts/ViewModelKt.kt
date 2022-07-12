@@ -27,7 +27,7 @@ interface IAppViewModel : ViewModelStoreOwner {
 /**
  * 获取 Application 级别的 ViewModel
  */
-inline fun <reified VM : ViewModel> LifecycleOwner.lazyAppViewModel(): Lazy<VM> {
+inline fun <reified VM : ViewModel> LifecycleOwner.appViewModel(): Lazy<VM> {
     return lazy {
         when (this) {
             is Fragment -> {
