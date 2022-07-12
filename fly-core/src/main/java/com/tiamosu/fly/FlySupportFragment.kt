@@ -18,7 +18,7 @@ import com.tiamosu.fly.delegate.IFlySupportFragment
  */
 abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
     private val delegate by lazy { FlySupportFragmentDelegate(this) }
-    val startDelegate by lazy { ActivityResultDelegate(this) }
+    val startDelegate = ActivityResultDelegate(apply { })
 
     protected lateinit var activity: AppCompatActivity
 

@@ -15,7 +15,7 @@ import com.tiamosu.fly.delegate.IFlySupportActivity
  */
 abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
     private val delegate by lazy { FlySupportActivityDelegate(this) }
-    val startDelegate by lazy { ActivityResultDelegate(this) }
+    val startDelegate = ActivityResultDelegate(apply { })
 
     final override fun getContext() = this
 
