@@ -13,6 +13,14 @@
         android:textSize="50sp" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/b_btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:text="跳转B页面" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b_btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

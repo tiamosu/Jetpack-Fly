@@ -19,6 +19,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import androidx.navigation.NavigatorProvider
 import androidx.navigation.fragment.FragmentNavigator.Destination
+import com.tiamosu.fly.kts.isFragmentAlive
 import com.tiamosu.fly.navigation.R
 import java.util.*
 
@@ -73,7 +74,7 @@ class FragmentNavigator internal constructor(
             Log.i(TAG, "Ignoring popBackStack() call: FragmentManager has already saved its state")
             return false
         }
-        try {
+        kotlin.runCatching {
             fragmentManager.popBackStack(
                 generateBackStackName(backStack.size, backStack.peekLast()),
                 FragmentManager.POP_BACK_STACK_INCLUSIVE
@@ -97,13 +98,11 @@ class FragmentNavigator internal constructor(
             if (preFragmentIndex >= fragmentManager.fragments.size) {
                 preFragmentIndex = fragmentManager.fragments.lastIndex
             }
-            if (preFragmentIndex < 0 || preFragmentIndex >= fragmentManager.fragments.size) {
-                return true
-            }
-            preReadyResumeFragment = fragmentManager.fragments[preFragmentIndex]
+            preReadyResumeFragment =
+                fragmentManager.fragments.getOrNull(preFragmentIndex) ?: return true
             resumeStateRunnable = Runnable {
                 if (preReadyResumeFragment?.isStateSaved == true
-                    || preReadyResumeFragment?.isAdded != true
+                    || preReadyResumeFragment?.isFragmentAlive != true
                 ) {
                     return@Runnable
                 }
@@ -114,8 +113,6 @@ class FragmentNavigator internal constructor(
                 preReadyResumeFragment = null
             }
             resumeStateRunnable?.let { myHandler.postDelayed(it, 50) }
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
         return true
     }
@@ -178,8 +175,7 @@ class FragmentNavigator internal constructor(
             //防止出现栈中的上个页面先显示再隐藏的一个闪烁问题。
             resumeStateRunnable?.let { myHandler.removeCallbacks(it) }
         }
-
-        try {
+        kotlin.runCatching {
             var className = destination.className
             if (className[0] == '.') {
                 className = context.packageName + className
@@ -255,10 +251,8 @@ class FragmentNavigator internal constructor(
             } else {
                 null
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return null
         }
+        return null
     }
 
     override fun onSaveState(): Bundle {

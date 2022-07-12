@@ -51,6 +51,7 @@ val View.navigator: NavHostKt
  * @param resId 操作ID或要导航到的目标ID
  * @param args 传递给目的地的参数
  * @param interval 设置防抖间隔时间，单位毫秒
+ * @param singleTop 是否进行栈顶复用
  * @param navigatorExtras 额外内容传递给导航器，可配置页面共享元素等
  * @param builder [NavOptionsBuilder] 配置
  */
@@ -58,6 +59,7 @@ fun NavHostKt.start(
     @IdRes resId: Int,
     args: Bundle? = null,
     interval: Long = 500,
+    singleTop: Boolean = false,
     navigatorExtras: Navigator.Extras? = null,
     builder: NavOptionsBuilder.() -> Unit = {}
 ) {
@@ -66,6 +68,7 @@ fun NavHostKt.start(
         args = args,
         interval = interval,
         builder = builder,
+        singleTop = singleTop,
         navigatorExtras = navigatorExtras
     )
 }

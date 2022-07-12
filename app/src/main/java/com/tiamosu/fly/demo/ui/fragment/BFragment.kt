@@ -6,6 +6,7 @@ import com.tiamosu.fly.demo.base.BaseFragment
 import com.tiamosu.fly.kts.clickNoRepeat
 import com.tiamosu.fly.navigation.navigator
 import com.tiamosu.fly.navigation.pop
+import com.tiamosu.fly.navigation.start
 import com.tiamosu.fly.viewbinding.viewBinding
 
 /**
@@ -22,6 +23,10 @@ class BFragment : BaseFragment() {
     override fun initEvent() {
         binding?.bBtnBack?.clickNoRepeat {
             navigator.pop()
+        }
+
+        binding?.bBtnStart?.clickNoRepeat {
+            navigator.start(R.id.bFragment, singleTop = true)
         }
     }
 }
