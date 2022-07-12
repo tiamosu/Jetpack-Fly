@@ -2,7 +2,6 @@ package com.tiamosu.fly.demo.ui.fragment
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
@@ -33,22 +32,12 @@ class MainFragment : BaseFragment() {
     override fun initView() {
         binding?.mainVp2?.init(
             fragment = this,
-            fragments = fragments
+            fragments = fragments,
+            isUserInputEnabled = false
         )
     }
 
     override fun initEvent() {
-        binding?.mainVp2?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                val id = when (position) {
-                    0 -> R.id.main_home
-                    1 -> R.id.main_search
-                    else -> R.id.main_view
-                }
-                binding?.mainNavigation?.selectedItemId = id
-            }
-        })
-
         binding?.mainNavigation?.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.main_home -> switchFragment(0)
