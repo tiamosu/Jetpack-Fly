@@ -1,4 +1,4 @@
-package com.tiamosu.fly.demo.data
+package com.tiamosu.fly.demo.data.model
 
 /**
  * @author ti

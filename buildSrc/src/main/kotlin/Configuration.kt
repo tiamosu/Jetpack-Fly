@@ -13,6 +13,7 @@ object Versions {
     const val kotlin = "1.7.10"
     const val utilcode = "1.31.0"
     const val brvah = "3.0.7"
+    const val unpeeklivedata = "7.6.0"
 }
 
 object Deps {
@@ -43,4 +44,7 @@ object Deps {
 
     //brvah
     const val brvah = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Versions.brvah}"
+
+    //UnPeekLiveData
+    const val unpeek_livedata = "com.kunminx.arch:unpeek-livedata:${Versions.unpeeklivedata}"
 }

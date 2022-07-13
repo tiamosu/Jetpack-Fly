@@ -19,4 +19,14 @@
         android:id="@+id/bFragment"
         android:name="com.tiamosu.fly.demo.ui.fragment.BFragment"
         tools:layout="@layout/fragment_b" />
+
+    <fragment
+        android:id="@+id/viewModelFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.ViewModelFragment"
+        tools:layout="@layout/fragment_view_model" />
+
+    <fragment
+        android:id="@+id/viewBindingFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.ViewBindingFragment"
+        tools:layout="@layout/fragment_view_binding" />
 </navigation>

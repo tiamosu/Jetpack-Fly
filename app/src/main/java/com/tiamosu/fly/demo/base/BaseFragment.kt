@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import com.tiamosu.fly.FlySupportFragment
 import com.tiamosu.fly.demo.bridge.SharedViewModel
-import com.tiamosu.fly.kts.immersionBar
+import com.tiamosu.fly.demo.kts.immersionBar
 import com.tiamosu.fly.kts.appViewModel
 
 /**

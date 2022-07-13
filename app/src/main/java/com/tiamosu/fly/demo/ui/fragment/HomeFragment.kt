@@ -1,6 +1,5 @@
 package com.tiamosu.fly.demo.ui.fragment
 
-import android.util.Log
 import androidx.core.view.updateLayoutParams
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.IntentUtils
@@ -8,11 +7,12 @@ import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentHomeBinding
 import com.tiamosu.fly.demo.base.BaseFragment
-import com.tiamosu.fly.demo.data.HomeEntity
+import com.tiamosu.fly.demo.data.enum.ActionType
+import com.tiamosu.fly.demo.data.model.HomeEntity
 import com.tiamosu.fly.demo.kts.init
+import com.tiamosu.fly.demo.kts.statusBarHeight
 import com.tiamosu.fly.demo.ui.adapter.HomeAdapter
 import com.tiamosu.fly.kts.startForActivityResult
-import com.tiamosu.fly.kts.statusBarHeight
 import com.tiamosu.fly.navigation.navigator
 import com.tiamosu.fly.navigation.start
 import com.tiamosu.fly.viewbinding.viewBinding
@@ -38,19 +38,24 @@ class HomeFragment : BaseFragment() {
         adapter.setOnItemClickListener { _, _, position ->
             val entity = adapter.data[position]
             when (entity.type) {
-                0 -> startForActivityResult(IntentUtils.getLaunchAppDetailsSettingsIntent(AppUtils.getAppPackageName())) {
-                    Log.e("susu", "result:$it")
+                ActionType.NAVIGATION.type -> navigator.start(R.id.aFragment)
+                ActionType.ACTIVITY_RESULT.type -> startForActivityResult(
+                    IntentUtils.getLaunchAppDetailsSettingsIntent(AppUtils.getAppPackageName())
+                ) {
                     ToastUtils.showLong(it.toString())
                 }
-                1 -> navigator.start(R.id.aFragment)
+                ActionType.VIEW_MODEL.type -> navigator.start(R.id.viewModelFragment)
+                ActionType.VIEW_BINDING.type -> navigator.start(R.id.viewBindingFragment)
             }
         }
     }
 
     override fun onLazyLoad() {
         mutableListOf<HomeEntity>().apply {
-            add(HomeEntity(0, "ActivityResult"))
-            add(HomeEntity(1, "Navigation"))
+            add(HomeEntity(ActionType.NAVIGATION.type, "Navigation"))
+            add(HomeEntity(ActionType.ACTIVITY_RESULT.type, "ActivityResult"))
+            add(HomeEntity(ActionType.VIEW_MODEL.type, "ViewModel"))
+            add(HomeEntity(ActionType.VIEW_BINDING.type, "ViewBinding"))
         }.let(adapter::setList)
     }
 }

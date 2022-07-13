@@ -2,13 +2,11 @@ package com.tiamosu.fly.demo.ui.fragment
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMainBinding
 import com.tiamosu.fly.demo.base.BaseFragment
-import com.tiamosu.fly.demo.bridge.ExampleViewModel
 import com.tiamosu.fly.demo.kts.init
 import com.tiamosu.fly.viewbinding.dataBinding
 
@@ -18,13 +16,10 @@ import com.tiamosu.fly.viewbinding.dataBinding
  */
 class MainFragment : BaseFragment() {
     private val binding by dataBinding<FragmentMainBinding>()
-    private val viewModel by viewModels<ExampleViewModel>()
 
     private val fragments by lazy {
         arrayListOf<Fragment>().apply {
             add(HomeFragment())
-            add(SearchFragment())
-            add(ViewFragment())
         }
     }
 
@@ -40,28 +35,10 @@ class MainFragment : BaseFragment() {
         )
     }
 
-    override fun initEvent() {
-        binding?.mainNavigation?.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.main_home -> switchFragment(0)
-                R.id.main_search -> switchFragment(1)
-                R.id.main_view -> switchFragment(2)
-            }
-            true
-        }
-    }
-
     override fun initObserver() {
         sharedViewModel.updateState.observe(this) {
-            ToastUtils.showLong("状态：${if (it) "开启" else "关闭"}")
+            ToastUtils.showLong("state：${if (it) "on" else "off"}")
         }
-    }
-
-    /**
-     * 切换页面
-     */
-    private fun switchFragment(index: Int) {
-        binding?.mainVp2?.setCurrentItem(index, false)
     }
 
     override fun onBackPressedSupport(): Boolean {
@@ -69,7 +46,7 @@ class MainFragment : BaseFragment() {
             ActivityUtils.finishAllActivities()
         } else {
             TOUCH_TIME = System.currentTimeMillis()
-            Toast.makeText(context, "再按一次退出", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Press again to exit", Toast.LENGTH_LONG).show()
         }
         return true
     }

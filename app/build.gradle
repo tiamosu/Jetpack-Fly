@@ -46,4 +46,7 @@ dependencies {
 
     //brvah
     implementation Deps.brvah
+
+    //unpeek_livedata
+    implementation Deps.unpeek_livedata
 }

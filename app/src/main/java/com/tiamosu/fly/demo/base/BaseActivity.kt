@@ -3,7 +3,7 @@ package com.tiamosu.fly.demo.base
 import android.os.Bundle
 import com.tiamosu.fly.FlySupportActivity
 import com.tiamosu.fly.demo.bridge.SharedViewModel
-import com.tiamosu.fly.kts.immersionBar
+import com.tiamosu.fly.demo.kts.immersionBar
 import com.tiamosu.fly.kts.appViewModel
 
 /**

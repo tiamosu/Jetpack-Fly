@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.ItemHomeBinding
-import com.tiamosu.fly.demo.data.HomeEntity
+import com.tiamosu.fly.demo.data.model.HomeEntity
 import com.tiamosu.fly.viewbinding.dataBinding
 
 /**
