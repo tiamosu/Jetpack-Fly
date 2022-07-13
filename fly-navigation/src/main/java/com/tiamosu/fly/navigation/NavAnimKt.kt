@@ -19,6 +19,6 @@ fun AnimBuilder.applyAnimSlide() {
 fun AnimBuilder.applyAnimDefault() {
     enter = R.anim.nav_default_enter
     exit = R.anim.nav_default_exit
-    popEnter = R.anim.nav_default_enter
-    popExit = R.anim.nav_default_exit
+    popEnter = R.anim.nav_default_pop_enter
+    popExit = R.anim.nav_default_pop_exit
 }

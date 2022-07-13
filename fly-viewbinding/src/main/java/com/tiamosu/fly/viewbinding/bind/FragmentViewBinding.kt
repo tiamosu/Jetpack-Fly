@@ -33,7 +33,11 @@ open class FragmentViewBinding<V : ViewBinding>(
         }
 
         @Suppress("UNCHECKED_CAST")
-        binding = bindMethod.invoke(null, thisRef.view) as? V
+        kotlin.runCatching {
+            binding = bindMethod.invoke(null, thisRef.view) as? V
+        }.onFailure {
+            it.printStackTrace()
+        }
         return binding
     }
 }

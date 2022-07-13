@@ -20,7 +20,9 @@ open class ViewHolderViewBinding<V : ViewBinding>(
         binding?.let { return it }
 
         @Suppress("UNCHECKED_CAST")
-        binding = bindMethod.invoke(null, thisRef.itemView) as? V
+        kotlin.runCatching {
+            binding = bindMethod.invoke(null, thisRef.itemView) as? V
+        }
         return binding
     }
 }

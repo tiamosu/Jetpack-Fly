@@ -34,7 +34,11 @@ open class ActivityViewBinding<V : ViewBinding>(
         }
 
         @Suppress("UNCHECKED_CAST")
-        binding = bindMethod.invoke(null, rootView) as? V
+        kotlin.runCatching {
+            binding = bindMethod.invoke(null, rootView) as? V
+        }.onFailure {
+            it.printStackTrace()
+        }
         return binding
     }
 }
