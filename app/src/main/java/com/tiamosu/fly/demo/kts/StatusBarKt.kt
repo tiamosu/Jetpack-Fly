@@ -1,4 +1,4 @@
-package com.tiamosu.fly.kts
+package com.tiamosu.fly.demo.kts
 
 import android.app.Activity
 import android.graphics.Color
@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.blankj.utilcode.util.BarUtils
 import com.tiamosu.fly.demo.base.BaseActivity
 import com.tiamosu.fly.demo.base.BaseFragment
-import com.tiamosu.fly.utils.StatusBarUtils
+import com.tiamosu.fly.demo.utils.StatusBarUtils
 
 /**
  * @author ti

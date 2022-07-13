@@ -8,7 +8,7 @@ apply {
 dependencies {
     //androidx
     api Deps.appcompat
-    api Deps.fragment
+    api Deps.fragment_ktx
     api Deps.core_ktx
 
     //lifecycle

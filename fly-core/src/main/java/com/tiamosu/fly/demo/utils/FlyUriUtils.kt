@@ -1,4 +1,4 @@
-package com.tiamosu.fly.utils
+package com.tiamosu.fly.demo.utils
 
 import android.content.ContentResolver
 import android.content.Context

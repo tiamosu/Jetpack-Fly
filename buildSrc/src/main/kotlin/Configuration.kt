@@ -29,6 +29,7 @@ object Deps {
 
     //navigation
     const val fragment = "androidx.fragment:fragment:1.5.0"
+    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.0"
     const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.0"
     const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.0"
 
