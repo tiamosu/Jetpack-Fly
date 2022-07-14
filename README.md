@@ -94,7 +94,7 @@ dependencies {
 }
 ```
 
-## proguard
+## Proguard
 
 本框架已配置混淆，工程会自动传递混淆，使用时无需另行配置。
 
