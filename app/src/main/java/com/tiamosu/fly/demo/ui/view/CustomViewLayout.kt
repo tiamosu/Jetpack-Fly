@@ -1,4 +1,4 @@
-package com.tiamosu.fly.demo.view
+package com.tiamosu.fly.demo.ui.view
 
 import android.content.Context
 import android.util.AttributeSet

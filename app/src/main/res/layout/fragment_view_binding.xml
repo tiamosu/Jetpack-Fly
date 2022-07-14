@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.tiamosu.fly.demo.view.CustomViewLayout
+    <com.tiamosu.fly.demo.ui.view.CustomViewLayout
         android:id="@+id/viewBinding_customView"
         android:layout_width="250dp"
         android:layout_height="150dp"
