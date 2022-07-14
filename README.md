@@ -25,13 +25,13 @@ allprojects {
 ### jfly-core（必选）
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-core:1.0.6'
+implementation 'com.gitee.tiamosu:jfly-core:1.0.7'
 ```
 
 ### jfly-navigation（可选）
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-navigation:1.0.6'
+implementation 'com.gitee.tiamosu:jfly-navigation:1.0.7'
 ```
 
 如使用 kotlin 拓展，在上述基础上，添加如下依赖即可：
@@ -45,7 +45,7 @@ implementation("androidx.navigation:navigation-fragment-ktx:2.5.0") {
 ### jfly-viewbinding（可选）
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-viewbinding:1.0.6'
+implementation 'com.gitee.tiamosu:jfly-viewbinding:1.0.7'
 
 android {
     buildFeatures {
@@ -93,6 +93,13 @@ dependencies {
     implementation Deps.recyclerview
 }
 ```
+
+## proguard
+
+本框架已配置混淆，工程会自动传递混淆，使用时无需另行配置。
+
+jfly-core: [android-rules.pro](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-core/consumer-rules.pro)
+jfly-viewbinding：[consumer-rules.pro](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-viewbinding/consumer-rules.pro)
 
 ## [更新日志](https://github.com/tiamosu/Jetpack-Fly/blob/master/CHANGELOG.md)
 
