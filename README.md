@@ -74,7 +74,7 @@ dependencies {
 }
 ```
 
-### jfly-core 模块依赖
+### jfly-navigation 模块依赖
 
 ```groovy
 dependencies {
@@ -85,7 +85,7 @@ dependencies {
 }
 ```
 
-### jfly-core 模块依赖
+### jfly-viewbinding 模块依赖
 
 ```groovy
 dependencies {
