@@ -98,8 +98,8 @@ dependencies {
 
 本框架已配置混淆，工程会自动传递混淆，使用时无需另行配置。
 
-jfly-core: [android-rules.pro](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-core/consumer-rules.pro)
-jfly-viewbinding：[consumer-rules.pro](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-viewbinding/consumer-rules.pro)
+* jfly-core: [android-rules.pro](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-core/android-rules.pro)
+* jfly-viewbinding：[consumer-rules.pro](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-viewbinding/consumer-rules.pro)
 
 ## [更新日志](https://github.com/tiamosu/Jetpack-Fly/blob/master/CHANGELOG.md)
 
