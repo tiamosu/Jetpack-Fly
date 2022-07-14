@@ -583,7 +583,7 @@ fun NavHostKt.popTo(
 此模块提供了 [ViewBindingKt](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-viewbinding/src/main/java/com/tiamosu/fly/viewbinding/ViewBindingKt.kt)，获取
 ViewBinding 和 DataBinding 实例的简单 API
 
-#### 2.3.1 在 ComponentActivity 使用，[详情查看：](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/activity/MainActivity.kt)
+#### 2.3.1 在 ComponentActivity 使用，[详情查看](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/activity/MainActivity.kt)
 
 ```kotlin
 // 获取 ViewBinding
@@ -593,7 +593,7 @@ private val binding by viewBinding<ActivityMainBinding>()
 private val binding by dataBinding<ActivityMainBinding>()
 ```
 
-#### 2.3.2 在 Fragment 使用，[详情查看：](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/fragment/MainFragment.kt)
+#### 2.3.2 在 Fragment 使用，[详情查看](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/fragment/MainFragment.kt)
 
 ```kotlin
 // 获取 ViewBinding
@@ -603,7 +603,7 @@ private val binding by viewBinding<FragmentMainBinding>()
 private val binding by dataBinding<FragmentMainBinding>()
 ```
 
-#### 2.3.3 在 ViewGroup 使用，[详情查看：](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/view/CustomViewLayout.kt)
+#### 2.3.3 在 ViewGroup 使用，[详情查看](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/view/CustomViewLayout.kt)
 
 ```kotlin
 // 获取 ViewBinding
@@ -613,7 +613,7 @@ private val binding by viewBinding<LayoutCustomViewBinding>()
 private val binding by dataBinding<LayoutCustomViewBinding>()
 ```
 
-#### 2.3.4 在 RecyclerView.ViewHolder 使用，[详情查看：](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/adapter/HomeAdapter.kt)
+#### 2.3.4 在 RecyclerView.ViewHolder 使用，[详情查看](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/adapter/HomeAdapter.kt)
 
 ```kotlin
 // 获取 ViewBinding
@@ -623,7 +623,7 @@ private val binding by viewBinding<ItemHomeBinding>()
 private val binding by dataBinding<ItemHomeBinding>()
 ```
 
-#### 2.3.5 View 转 ViewBinding、DataBinding [详情查看：](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/view/CustomViewLayout.kt)
+#### 2.3.5 View 转 ViewBinding、DataBinding [详情查看](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/view/CustomViewLayout.kt)
 
 ```kotlin
 // 获取 ViewBinding
