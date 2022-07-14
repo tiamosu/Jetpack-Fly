@@ -94,6 +94,8 @@ dependencies {
 }
 ```
 
+## [更新日志](https://github.com/tiamosu/Jetpack-Fly/blob/master/CHANGELOG.md)
+
 ## *特别感谢*
 
 * [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)
