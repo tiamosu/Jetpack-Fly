@@ -505,9 +505,9 @@ fun NavHostKt.start(
         navigatorExtras = navigatorExtras
     )
 }
+```
 
 // 在 ComponentActivity 和 Fragment 中使用：navigator.start()
-```
 
 ```kotlin
 /**
@@ -540,9 +540,9 @@ fun NavHostKt.startWithPopTo(
         navigatorExtras = navigatorExtras
     )
 }
+```
 
 // 在 ComponentActivity 和 Fragment 中使用：：navigator.startWithPopTo()
-```
 
 ##### 2.2.2.2 出栈
 
@@ -553,9 +553,9 @@ fun NavHostKt.startWithPopTo(
 fun NavHostKt.pop() {
     navigateUp()
 }
+```
 
 // 在 ComponentActivity 和 Fragment 中使用：：navigator.pop()
-```
 
 ```kotlin
 /**
@@ -570,9 +570,9 @@ fun NavHostKt.popTo(
 ) {
     popBackStack(popUpToId, inclusive)
 }
+```
 
 // 在 ComponentActivity 和 Fragment 中使用：：navigator.popTo()
-```
 
 #### 2.2.3 [NavAnimKt](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-navigation/src/main/java/com/tiamosu/fly/navigation/NavAnimKt.kt)
 
@@ -623,7 +623,7 @@ private val binding by viewBinding<ItemHomeBinding>()
 private val binding by dataBinding<ItemHomeBinding>()
 ```
 
-#### 2.3.5 View 转 ViewBinding、DataBinding
+#### 2.3.5 View 转 ViewBinding、DataBinding [详情查看：](https://github.com/tiamosu/Jetpack-Fly/blob/master/app/src/main/java/com/tiamosu/fly/demo/ui/view/CustomViewLayout.kt)
 
 ```kotlin
 // 获取 ViewBinding
