@@ -12,6 +12,7 @@ import com.tiamosu.fly.demo.data.model.HomeEntity
 import com.tiamosu.fly.demo.kts.init
 import com.tiamosu.fly.demo.kts.statusBarHeight
 import com.tiamosu.fly.demo.ui.adapter.HomeAdapter
+import com.tiamosu.fly.demo.ui.dialog.MyDialogFragment
 import com.tiamosu.fly.kts.startForActivityResult
 import com.tiamosu.fly.navigation.navigator
 import com.tiamosu.fly.navigation.start
@@ -46,6 +47,7 @@ class HomeFragment : BaseFragment() {
                 }
                 ActionType.VIEW_MODEL.type -> navigator.start(R.id.viewModelFragment)
                 ActionType.VIEW_BINDING.type -> navigator.start(R.id.viewBindingFragment)
+                ActionType.DIALOG_FRAGMENT.type -> MyDialogFragment.showDialog(context)
             }
         }
     }
@@ -56,6 +58,7 @@ class HomeFragment : BaseFragment() {
             add(HomeEntity(ActionType.ACTIVITY_RESULT.type, "ActivityResult"))
             add(HomeEntity(ActionType.VIEW_MODEL.type, "ViewModel"))
             add(HomeEntity(ActionType.VIEW_BINDING.type, "ViewBinding"))
+            add(HomeEntity(ActionType.DIALOG_FRAGMENT.type, "DialogFragment"))
         }.let(adapter::setList)
     }
 }

@@ -30,6 +30,8 @@ open class ViewGroupViewBinding<V : ViewBinding>(
             kotlin.runCatching {
                 val inflateMethod = bindingClass.inflateMethod2()
                 binding = inflateMethod.invoke(null, layoutInflater, thisRef) as? V
+            }.onFailure {
+                it.printStackTrace()
             }
         }
         return binding

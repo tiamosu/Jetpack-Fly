@@ -22,6 +22,8 @@ open class ViewHolderViewBinding<V : ViewBinding>(
         @Suppress("UNCHECKED_CAST")
         kotlin.runCatching {
             binding = bindMethod.invoke(null, thisRef.itemView) as? V
+        }.onFailure {
+            it.printStackTrace()
         }
         return binding
     }

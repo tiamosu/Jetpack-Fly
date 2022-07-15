@@ -41,7 +41,7 @@ inline fun <reified VM : ViewModel> LifecycleOwner.appViewModel(): Lazy<VM> {
                 ) { "$application must impl IAppViewModel!" }
             }
             else -> {
-                error("${this.javaClass.simpleName} must be Fragment or AppCompatActivity!")
+                error("${this.javaClass} must be Fragment or AppCompatActivity!")
             }
         }
     }
