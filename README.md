@@ -1,5 +1,5 @@
 <div style="display: flex; flex-direction: row; justify-content: center" width="100%">
-  <img src="./img/logo.png"/>
+  <img src="./img/logo.webp"/>
 </div>
 
 ## Wiki
