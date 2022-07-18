@@ -1,6 +1,8 @@
 package com.tiamosu.fly.demo.ui.fragment
 
-import androidx.fragment.app.viewModels
+import com.airbnb.mvrx.MavericksView
+import com.airbnb.mvrx.fragmentViewModel
+import com.airbnb.mvrx.withState
 import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentViewModelBinding
@@ -13,9 +15,9 @@ import com.tiamosu.fly.viewbinding.viewBinding
  * @author ti
  * @date 2022/7/13.
  */
-class ViewModelFragment : BaseFragment() {
+class ViewModelFragment : BaseFragment(), MavericksView {
     private val binding by viewBinding<FragmentViewModelBinding>()
-    private val viewModel by viewModels<ExampleViewModel>()
+    private val viewModel: ExampleViewModel by fragmentViewModel()
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_view_model
@@ -32,9 +34,7 @@ class ViewModelFragment : BaseFragment() {
         }
     }
 
-    override fun initObserver() {
-        viewModel.count.observe(this) { count ->
-            ToastUtils.showLong("count:$count")
-        }
+    override fun invalidate() = withState(viewModel) { state ->
+        ToastUtils.showLong("Count:${state.count}")
     }
 }

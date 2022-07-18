@@ -1,16 +1,17 @@
 package com.tiamosu.fly.demo.bridge
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.airbnb.mvrx.MavericksState
+import com.airbnb.mvrx.MavericksViewModel
+import com.airbnb.mvrx.PersistState
 
 /**
  * @author ti
  * @date 2022/7/13.
  */
-class ExampleViewModel : ViewModel() {
-    val count by lazy { MutableLiveData<Int>() }
 
-    fun incrementCount() {
-        count.value = (count.value ?: 0) + 1
-    }
+data class CounterState(@PersistState val count: Int = 0) : MavericksState
+
+class ExampleViewModel(state: CounterState) : MavericksViewModel<CounterState>(state) {
+
+    fun incrementCount() = setState { copy(count = count.inc()) }
 }

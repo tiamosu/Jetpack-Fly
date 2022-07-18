@@ -49,4 +49,7 @@ dependencies {
 
     //unpeek_livedata
     implementation Deps.unpeek_livedata
+
+    //mavericks
+    implementation Deps.mavericks
 }

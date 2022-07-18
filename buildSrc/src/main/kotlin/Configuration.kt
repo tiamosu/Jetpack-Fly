@@ -14,6 +14,7 @@ object Versions {
     const val utilcode = "1.31.0"
     const val brvah = "3.0.7"
     const val unpeeklivedata = "7.6.0"
+    const val mavericks = "2.7.0"
 }
 
 object Deps {
@@ -47,4 +48,7 @@ object Deps {
 
     //UnPeekLiveData
     const val unpeek_livedata = "com.kunminx.arch:unpeek-livedata:${Versions.unpeeklivedata}"
+
+    //mavericks
+    const val mavericks = "com.airbnb.android:mavericks:${Versions.mavericks}"
 }
