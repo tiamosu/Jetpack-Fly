@@ -61,7 +61,7 @@ android {
 
 ## Dependencies
 
-### jfly-core 模块依赖
+### jfly-core
 
 ```groovy
 dependencies {
@@ -80,7 +80,7 @@ dependencies {
 }
 ```
 
-### jfly-navigation 模块依赖
+### jfly-navigation
 
 ```groovy
 dependencies {
@@ -91,7 +91,7 @@ dependencies {
 }
 ```
 
-### jfly-viewbinding 模块依赖
+### jfly-viewbinding
 
 ```groovy
 dependencies {
