@@ -1,4 +1,4 @@
-![]([img/logo.webp]#pic_center)
+![]([img/logo.webp] #pic_center)
 
 ## Wiki
 
