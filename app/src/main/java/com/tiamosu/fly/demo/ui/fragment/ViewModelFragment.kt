@@ -28,12 +28,12 @@ class ViewModelFragment : BaseFragment() {
         }
 
         binding?.viewModelBtnCount?.clickNoRepeat {
-            viewModel.count()
+            viewModel.incrementCount()
         }
     }
 
     override fun initObserver() {
-        viewModel.liveData.observe(this) { count ->
+        viewModel.count.observe(this) { count ->
             ToastUtils.showLong("count:$count")
         }
     }

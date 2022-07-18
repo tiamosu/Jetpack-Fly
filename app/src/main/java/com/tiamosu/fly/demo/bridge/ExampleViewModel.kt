@@ -8,11 +8,13 @@ import com.kunminx.architecture.ui.callback.UnPeekLiveData
  * @date 2022/7/13.
  */
 class ExampleViewModel : ViewModel() {
-    val liveData by lazy { UnPeekLiveData<Int>() }
-    private var count = 0
+    val count by lazy { UnPeekLiveData<Int>() }
 
-    fun count() {
-        count++
-        liveData.value = count
+    init {
+        count.value = 0
+    }
+
+    fun incrementCount() {
+        count.value = (count.value ?: 0) + 1
     }
 }
