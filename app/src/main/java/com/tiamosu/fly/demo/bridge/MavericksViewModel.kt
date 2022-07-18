@@ -11,7 +11,7 @@ import com.airbnb.mvrx.PersistState
 
 data class CounterState(@PersistState val count: Int = 0) : MavericksState
 
-class ExampleViewModel(state: CounterState) : MavericksViewModel<CounterState>(state) {
+class MavericksViewModel(state: CounterState) : MavericksViewModel<CounterState>(state) {
 
     fun incrementCount() = setState { copy(count = count.inc()) }
 }

@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMavericksBinding
 import com.tiamosu.fly.demo.base.BaseFragment
-import com.tiamosu.fly.demo.bridge.ExampleViewModel
+import com.tiamosu.fly.demo.bridge.MavericksViewModel
 import com.tiamosu.fly.kts.clickNoRepeat
 import com.tiamosu.fly.viewbinding.viewBinding
 
@@ -17,7 +17,7 @@ import com.tiamosu.fly.viewbinding.viewBinding
  */
 class MavericksFragment : BaseFragment(), MavericksView {
     private val binding by viewBinding<FragmentMavericksBinding>()
-    private val viewModel: ExampleViewModel by fragmentViewModel()
+    private val viewModel: MavericksViewModel by fragmentViewModel()
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_mavericks
