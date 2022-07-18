@@ -57,7 +57,7 @@ class HomeFragment : BaseFragment() {
         mutableListOf<HomeEntity>().apply {
             add(HomeEntity(ActionType.NAVIGATION.type, "Navigation"))
             add(HomeEntity(ActionType.ACTIVITY_RESULT.type, "ActivityResult"))
-            add(HomeEntity(ActionType.MAVERICKS.type, "Mavericks"))
+            add(HomeEntity(ActionType.MAVERICKS.type, "Mavericks MVI"))
             add(HomeEntity(ActionType.VIEW_BINDING.type, "ViewBinding"))
             add(HomeEntity(ActionType.DIALOG_FRAGMENT.type, "DialogFragment"))
             add(HomeEntity(ActionType.SHARED.type, "SharedViewModel"))
