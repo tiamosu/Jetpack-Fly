@@ -36,8 +36,8 @@ implementation 'com.gitee.tiamosu:jfly-core:1.0.8'
 implementation 'com.gitee.tiamosu:jfly-navigation:1.0.8'
 ```
 
-如本地或第三方依赖包含
-navigation-fragment，需排除，防止与本地 [NavHostFragment](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-navigation/src/main/java/androidx/navigation/fragment/NavHostFragment.kt)
+* 需排除本地或第三方依赖中的
+navigation-fragment，防止与 [NavHostFragment](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-navigation/src/main/java/androidx/navigation/fragment/NavHostFragment.kt)
 修改版冲突，示例如下：
 
 ```groovy
