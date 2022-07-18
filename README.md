@@ -1,4 +1,6 @@
-# Jetpack-Fly
+<div style="display: flex; flex-direction: row; justify-content: center" width="100%">
+  <img src="./img/logo.png"/>
+</div>
 
 ## Wiki
 
@@ -37,8 +39,8 @@ implementation 'com.gitee.tiamosu:jfly-navigation:1.0.8'
 ```
 
 * 需排除本地或第三方依赖中的
-navigation-fragment，防止与 [NavHostFragment](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-navigation/src/main/java/androidx/navigation/fragment/NavHostFragment.kt)
-修改版冲突，示例如下：
+  navigation-fragment，防止与 [NavHostFragment](https://github.com/tiamosu/Jetpack-Fly/blob/master/fly-navigation/src/main/java/androidx/navigation/fragment/NavHostFragment.kt)
+  修改版冲突，示例如下：
 
 ```groovy
 implementation("androidx.navigation:navigation-fragment-ktx:2.5.0") {
