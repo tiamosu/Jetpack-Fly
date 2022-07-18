@@ -21,12 +21,17 @@
         tools:layout="@layout/fragment_b" />
 
     <fragment
-        android:id="@+id/viewModelFragment"
-        android:name="com.tiamosu.fly.demo.ui.fragment.ViewModelFragment"
-        tools:layout="@layout/fragment_view_model" />
+        android:id="@+id/mavericksFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.MavericksFragment"
+        tools:layout="@layout/fragment_mavericks" />
 
     <fragment
-        android:id="@+id/viewBindingFragment"
-        android:name="com.tiamosu.fly.demo.ui.fragment.ViewBindingFragment"
-        tools:layout="@layout/fragment_view_binding" />
+        android:id="@+id/bindingFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.BindingFragment"
+        tools:layout="@layout/fragment_binding" />
+
+    <fragment
+        android:id="@+id/sharedFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.SharedFragment"
+        tools:layout="@layout/fragment_shared" />
 </navigation>

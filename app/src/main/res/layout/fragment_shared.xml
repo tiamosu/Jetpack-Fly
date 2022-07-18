@@ -8,16 +8,9 @@
     tools:ignore="all">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/viewModel_btnShare"
+        android:id="@+id/shared_btnShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Global Share"
-        android:textAllCaps="false" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/viewModel_btnCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Counter"
         android:textAllCaps="false" />
 </androidx.appcompat.widget.LinearLayoutCompat>
