@@ -1,4 +1,6 @@
-![]([img/logo.webp] #pic_center)
+# Jetpack-Fly
+
+<div align=center><img src="img/logo.webp"></div>
 
 ## Wiki
 
