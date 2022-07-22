@@ -27,12 +27,11 @@ class DialogFragmentNavigator internal constructor(
     private var dialogCount = 0
     private val observer by lazy {
         LifecycleEventObserver { source, event ->
-            if (event == Lifecycle.Event.ON_STOP) {
-                val dialogFragment = source as? DialogFragment ?: return@LifecycleEventObserver
-                if (!dialogFragment.requireDialog().isShowing) {
-                    kotlin.runCatching {
-                        NavHostFragment.findNavController(dialogFragment).popBackStack()
-                    }
+            if (event != Lifecycle.Event.ON_STOP) return@LifecycleEventObserver
+            val dialogFragment = source as? DialogFragment ?: return@LifecycleEventObserver
+            if (dialogFragment.dialog?.isShowing != true) {
+                kotlin.runCatching {
+                    NavHostFragment.findNavController(dialogFragment).popBackStack()
                 }
             }
         }
@@ -98,11 +97,9 @@ class DialogFragmentNavigator internal constructor(
         dialogCount = savedState.getInt(KEY_DIALOG_COUNT, 0)
         for (index in 0 until dialogCount) {
             val fragment = fragmentManager.findFragmentByTag(DIALOG_TAG + index) as? DialogFragment
-            if (fragment != null) {
-                fragment.lifecycle.addObserver(observer)
-            } else {
-                error("DialogFragment $index doesn't exist in the FragmentManager")
-            }
+            checkNotNull(fragment) {
+                "DialogFragment $index doesn't exist in the FragmentManager"
+            }.lifecycle.addObserver(observer)
         }
     }
 
@@ -132,7 +129,7 @@ class DialogFragmentNavigator internal constructor(
          * will be associated with.
          */
         internal constructor(navigatorProvider: NavigatorProvider) : this(
-            navigatorProvider.getNavigator<DialogFragmentNavigator>(DialogFragmentNavigator::class.java)
+            navigatorProvider.getNavigator(DialogFragmentNavigator::class.java)
         )
 
         @CallSuper
@@ -141,9 +138,10 @@ class DialogFragmentNavigator internal constructor(
             attrs: AttributeSet
         ) {
             super.onInflate(context, attrs)
-            val ta = context.resources.obtainAttributes(attrs, R.styleable.DialogFragmentNavigator)
-            ta.getString(R.styleable.DialogFragmentNavigator_android_name)?.let { setClassName(it) }
-            ta.recycle()
+            context.resources.obtainAttributes(attrs, R.styleable.DialogFragmentNavigator).apply {
+                getString(R.styleable.DialogFragmentNavigator_android_name)?.let { setClassName(it) }
+                recycle()
+            }
         }
 
         /**
@@ -164,9 +162,7 @@ class DialogFragmentNavigator internal constructor(
          * @throws IllegalStateException when no DialogFragment class was set.
          */
         val className: String
-            get() {
-                return checkNotNull(mClassName) { "DialogFragment class was not set" }
-            }
+            get() = checkNotNull(mClassName) { "DialogFragment class was not set" }
     }
 
     companion object {
