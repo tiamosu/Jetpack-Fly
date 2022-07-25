@@ -89,11 +89,8 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
         if (fragments.isEmpty()) return parentFragment
         for (i in fragments.indices.reversed()) {
             val fragment = fragments[i]
-            if (fragment.isResumed) {
-                return getActiveFragment(
-                    fragment.childFragmentManager,
-                    fragment as? IFlyBackCallback
-                )
+            if (fragment is IFlyBackCallback && fragment.isResumed) {
+                return getActiveFragment(fragment.childFragmentManager, fragment)
             }
         }
         return parentFragment
