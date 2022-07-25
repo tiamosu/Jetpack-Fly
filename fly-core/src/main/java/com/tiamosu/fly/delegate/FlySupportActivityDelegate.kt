@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import com.tiamosu.fly.FlySupportFragment
 
 /**
  * @author ti
@@ -89,11 +90,23 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
         if (fragments.isEmpty()) return parentFragment
         for (i in fragments.indices.reversed()) {
             val fragment = fragments[i]
-            if (fragment is IFlyBackCallback && fragment.isResumed) {
-                return getActiveFragment(fragment.childFragmentManager, fragment)
+            if (isNavHostFragment(fragment)
+                || (fragment as? FlySupportFragment)?.isResumed == true
+            ) {
+                return getActiveFragment(
+                    fragment.childFragmentManager,
+                    fragment as? IFlyBackCallback
+                )
             }
         }
         return parentFragment
+    }
+
+    private fun isNavHostFragment(fragment: Fragment?): Boolean {
+        return fragment?.javaClass?.simpleName?.contains(
+            "NavHostFragment",
+            ignoreCase = true
+        ) == true
     }
 
     private fun dispatchBackPressedEvent(iBackCallback: IFlyBackCallback?): Boolean {
