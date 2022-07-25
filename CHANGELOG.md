@@ -1,3 +1,7 @@
+# 新版本 1.1.0
+
+* Fragment onBackPressedSupport 回退判断优化
+
 # 新版本 1.0.9
 
 * Fragment onBackPressedSupport 回退判断优化
