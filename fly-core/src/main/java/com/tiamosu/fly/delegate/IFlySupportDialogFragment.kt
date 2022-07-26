@@ -34,10 +34,10 @@ interface IFlySupportDialogFragment {
     /**
      * Dialog 取消
      */
-    fun onDialogCancel(dialog: FlySupportDialogFragment)
+    fun onDialogCancel(dialog: FlySupportDialogFragment) {}
 
     /**
      * Dialog 消失
      */
-    fun onDialogDismiss(dialog: FlySupportDialogFragment)
+    fun onDialogDismiss(dialog: FlySupportDialogFragment) {}
 }
