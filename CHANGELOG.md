@@ -1,3 +1,7 @@
+# 新版本 1.1.1
+
+* FlySupportDialogFragment 新增 onDialogCancel、onDialogDismiss 函数
+
 # 新版本 1.1.0
 
 * Fragment onBackPressedSupport 回退判断优化
