@@ -30,4 +30,14 @@ interface IFlySupportDialogFragment {
      * Dialog Window 配置
      */
     fun setWindowStyle(window: Window) {}
+
+    /**
+     * Dialog 取消
+     */
+    fun onDialogCancel(dialog: FlySupportDialogFragment)
+
+    /**
+     * Dialog 消失
+     */
+    fun onDialogDismiss(dialog: FlySupportDialogFragment)
 }

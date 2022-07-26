@@ -2,6 +2,7 @@ package com.tiamosu.fly
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -87,5 +88,15 @@ abstract class FlySupportDialogFragment : DialogFragment(), IFlySupportDialogFra
         return super.onCreateDialog(savedInstanceState).apply {
             dialog?.window?.let { setWindowStyle(it) }
         }
+    }
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+        onDialogCancel(this)
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        onDialogDismiss(this)
     }
 }
