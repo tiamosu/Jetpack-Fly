@@ -3,7 +3,6 @@ package com.tiamosu.fly.kts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
-import com.blankj.utilcode.util.ActivityUtils
 import com.tiamosu.fly.FlySupportFragment
 
 /**
@@ -32,6 +31,6 @@ inline val LifecycleOwner.lifecycleOwnerEx: LifecycleOwner
 inline val LifecycleOwner.context: FragmentActivity
     get() = when (this) {
         is FlySupportFragment -> context
-        is Fragment -> checkNotNull(ActivityUtils.getActivityByContext(context) as? FragmentActivity)
+        is Fragment -> requireActivity()
         else -> checkNotNull(this as? FragmentActivity)
     }
