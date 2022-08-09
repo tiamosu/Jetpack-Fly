@@ -30,15 +30,15 @@ object Deps {
     const val material = "com.google.android.material:material:1.6.1"
 
     //navigation
-    const val fragment = "androidx.fragment:fragment:1.5.0"
-    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.0"
-    const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.0"
-    const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.0"
+    const val fragment = "androidx.fragment:fragment:1.5.1"
+    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.1"
+    const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.1"
+    const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.1"
 
     //lifecycle
-    const val lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0"
-    const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
-    const val lifecycle_livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
+    const val lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    const val lifecycle_livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 
     //utilcode：常用工具类库 https://github.com/Blankj/AndroidUtilCode
     const val utilcode = "com.blankj:utilcodex:${Versions.utilcode}"
