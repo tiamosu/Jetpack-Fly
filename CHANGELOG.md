@@ -1,3 +1,10 @@
+# 新版本 1.1.3
+
+* fragment → 1.5.1
+* navigation → 2.5.1
+* lifecycle → 2.5.1
+* 添加kotlin混淆配置
+
 # 新版本 1.1.1
 
 * FlySupportDialogFragment 新增 onDialogCancel、onDialogDismiss 函数
