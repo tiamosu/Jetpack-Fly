@@ -1,12 +1,12 @@
 package com.tiamosu.fly.demo.ui.fragment
 
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMainBinding
 import com.tiamosu.fly.demo.base.BaseFragment
+import com.tiamosu.fly.demo.kts.HandleFragment
 import com.tiamosu.fly.demo.kts.init
 import com.tiamosu.fly.viewbinding.dataBinding
 
@@ -18,8 +18,8 @@ class MainFragment : BaseFragment() {
     private val binding by dataBinding<FragmentMainBinding>()
 
     private val fragments by lazy {
-        arrayListOf<Fragment>().apply {
-            add(HomeFragment())
+        arrayListOf<HandleFragment>().apply {
+            add { HomeFragment() }
         }
     }
 

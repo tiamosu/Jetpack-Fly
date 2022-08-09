@@ -16,7 +16,7 @@ import androidx.viewpager2.widget.ViewPager2
  */
 fun ViewPager2.init(
     fragment: Fragment,
-    fragments: ArrayList<Fragment>,
+    fragments: ArrayList<HandleFragment>,
     isUserInputEnabled: Boolean = true,
     offscreenPageLimit: Int = fragments.size
 ) {
@@ -25,10 +25,7 @@ fun ViewPager2.init(
     //设置页面预加载数量
     this.offscreenPageLimit = offscreenPageLimit
     //设置适配器
-    adapter = object : FragmentStateAdapter(fragment) {
-        override fun createFragment(position: Int) = fragments[position]
-        override fun getItemCount() = fragments.size
-    }
+    adapter = ViewPagerAdapter(fragment).apply { addAll(fragments) }
 }
 
 /**
