@@ -10,10 +10,10 @@ import android.view.ViewTreeObserver
  */
 
 /**
- * 防止重复点击事件，默认0.5秒内不可重复点击
+ * 防止重复点击事件，默认1秒内不可重复点击
  */
 fun View.clickNoRepeat(
-    interval: Long = 500,
+    interval: Long = 1000,
     block: (view: View) -> Unit
 ) {
     setOnClickListener {
@@ -24,10 +24,10 @@ fun View.clickNoRepeat(
 }
 
 /**
- * 防止重复点击事件，默认0.5秒内不可重复点击
+ * 防止重复点击事件，默认1秒内不可重复点击
  */
 fun clickNoRepeat(
-    interval: Long = 500,
+    interval: Long = 1000,
     views: Array<out View?>,
     block: (view: View) -> Unit
 ) {

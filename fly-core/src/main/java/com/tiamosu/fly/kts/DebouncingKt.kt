@@ -15,7 +15,7 @@ import com.blankj.utilcode.util.DebouncingUtils
  */
 fun Any.isValid(
     key: String = this.hashCode().toString(),
-    interval: Long = 500
+    interval: Long = 1000
 ): Boolean {
     return DebouncingUtils.isValid(key, interval)
 }
