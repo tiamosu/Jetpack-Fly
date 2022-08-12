@@ -15,9 +15,11 @@
 </intent>
 </queries>
 
-<application android:hasFragileUserData="true" android:largeHeap="true"
-android:networkSecurityConfig="@xml/fly_network_security_config"
-android:requestLegacyExternalStorage="true" tools:ignore="UnusedAttribute">
+<application android:hasFragileUserData="true" 
+             android:largeHeap="true"
+             android:networkSecurityConfig="@xml/fly_network_security_config" 
+             android:requestLegacyExternalStorage="true" 
+             tools:ignore="UnusedAttribute">
 
 <!-- 适配全面屏 vivo & oppo-->
 <meta-data android:name="android.max_aspect" android:value="2.4" />
