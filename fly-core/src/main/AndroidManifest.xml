@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tiamosu.fly">
 
-    <uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
-
     <queries>
         <!-- Android 11 软件包可见性适配 -->
 
