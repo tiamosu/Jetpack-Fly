@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.tiamosu.fly">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tiamosu.fly">
 
+    <uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
+
+    <queries>
+        <!-- Android 11 软件包可见性适配 -->
+
+        <!-- 调起其他页面意图：Intent.ACTION_VIEW -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+        </intent>
+    </queries>
+
+    <application
+        android:hasFragileUserData="true"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/fly_network_security_config"
+        android:requestLegacyExternalStorage="true"
+        tools:ignore="UnusedAttribute">
+
+        <!-- 适配全面屏 vivo & oppo-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <!-- 适配刘海屏、水滴屏 小米 -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
+        <!-- 适配刘海屏、水滴屏 华为 -->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+    </application>
 </manifest>

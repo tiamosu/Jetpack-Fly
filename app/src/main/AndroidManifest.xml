@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tiamosu.fly">
 
-    <uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
-
     <application
         android:name=".demo.MyApp"
         android:allowBackup="true"
