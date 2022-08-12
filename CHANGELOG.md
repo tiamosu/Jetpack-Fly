@@ -1,3 +1,35 @@
+# 新版本 1.1.5
+
+* 新增相关属性配置：
+
+```xml
+
+<uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
+
+<queries>
+<!-- Android 11 软件包可见性适配 -->
+
+<!-- 调起其他页面意图：Intent.ACTION_VIEW -->
+<intent>
+    <action android:name="android.intent.action.VIEW" />
+</intent>
+</queries>
+
+<application android:hasFragileUserData="true" android:largeHeap="true"
+android:networkSecurityConfig="@xml/fly_network_security_config"
+android:requestLegacyExternalStorage="true" tools:ignore="UnusedAttribute">
+
+<!-- 适配全面屏 vivo & oppo-->
+<meta-data android:name="android.max_aspect" android:value="2.4" />
+
+<!-- 适配刘海屏、水滴屏 小米 -->
+<meta-data android:name="notch.config" android:value="portrait|landscape" />
+
+<!-- 适配刘海屏、水滴屏 华为 -->
+<meta-data android:name="android.notch_support" android:value="true" />
+</application>
+```
+
 # 新版本 1.1.4
 
 * 防抖默认时间0.5秒改为1秒
