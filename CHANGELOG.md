@@ -1,3 +1,7 @@
+# 新版本 1.1.6
+
+* 移除 <uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
+
 # 新版本 1.1.5
 
 * 新增相关属性配置：
