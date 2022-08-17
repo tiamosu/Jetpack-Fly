@@ -3,6 +3,7 @@ package com.tiamosu.fly.demo.ui.fragment
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentSharedBinding
 import com.tiamosu.fly.demo.base.BaseFragment
+import com.tiamosu.fly.demo.sharedViewModel
 import com.tiamosu.fly.kts.clickNoRepeat
 import com.tiamosu.fly.viewbinding.viewBinding
 

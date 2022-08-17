@@ -8,6 +8,7 @@ import com.tiamosu.fly.databinding.FragmentMainBinding
 import com.tiamosu.fly.demo.base.BaseFragment
 import com.tiamosu.fly.demo.kts.HandleFragment
 import com.tiamosu.fly.demo.kts.init
+import com.tiamosu.fly.demo.sharedViewModel
 import com.tiamosu.fly.viewbinding.dataBinding
 
 /**
