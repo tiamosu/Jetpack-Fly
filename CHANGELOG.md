@@ -1,3 +1,9 @@
+# 新版本 1.1.7
+
+* appcompat:1.5.0
+* fragment:1.5.2
+* 删除 IAppViewModel，全局 ViewModel 实现使用 ApplicationInstance 替换
+
 # 新版本 1.1.6
 
 * 移除 <uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
@@ -19,11 +25,9 @@
 </intent>
 </queries>
 
-<application android:hasFragileUserData="true" 
-             android:largeHeap="true"
-             android:networkSecurityConfig="@xml/fly_network_security_config" 
-             android:requestLegacyExternalStorage="true" 
-             tools:ignore="UnusedAttribute">
+<application android:hasFragileUserData="true" android:largeHeap="true"
+android:networkSecurityConfig="@xml/fly_network_security_config"
+android:requestLegacyExternalStorage="true" tools:ignore="UnusedAttribute">
 
 <!-- 适配全面屏 vivo & oppo-->
 <meta-data android:name="android.max_aspect" android:value="2.4" />
