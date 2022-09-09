@@ -22,8 +22,8 @@ object Deps {
     const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
 
     //androidx
-    const val core_ktx = "androidx.core:core-ktx:1.8.0"
-    const val appcompat = "androidx.appcompat:appcompat:1.5.0"
+    const val core_ktx = "androidx.core:core-ktx:1.9.0"
+    const val appcompat = "androidx.appcompat:appcompat:1.5.1"
     const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
     const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
@@ -32,8 +32,8 @@ object Deps {
     //navigation
     const val fragment = "androidx.fragment:fragment:1.5.2"
     const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.2"
-    const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.1"
-    const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.1"
+    const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.2"
+    const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.2"
 
     //lifecycle
     const val lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"

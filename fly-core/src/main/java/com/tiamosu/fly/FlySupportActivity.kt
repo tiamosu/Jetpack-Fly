@@ -65,6 +65,7 @@ abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
     /**
      * 不建议重写该函数，请使用 [onBackPressedSupport] 代替
      */
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         delegate.onBackPressed()
     }

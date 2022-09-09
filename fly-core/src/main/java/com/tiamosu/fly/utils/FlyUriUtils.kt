@@ -26,8 +26,8 @@ object FlyUriUtils {
             val contentResolver = context.contentResolver
             val cursor = contentResolver.query(uri, null, null, null, null)
             if (cursor?.moveToFirst() == true) {
-                val displayName =
-                    cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+                val columnIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                val displayName = cursor.getString(columnIndex)
                 kotlin.runCatching {
                     contentResolver.openInputStream(uri).use { `is` ->
                         val cachePath = context.externalCacheDir?.absolutePath ?: ""
@@ -49,6 +49,7 @@ object FlyUriUtils {
                     }
                 }
             }
+            cursor?.close()
         }
         return file
     }
