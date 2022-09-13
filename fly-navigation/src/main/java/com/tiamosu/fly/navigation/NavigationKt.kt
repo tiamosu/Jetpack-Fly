@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
-import com.blankj.utilcode.util.ActivityUtils
+import com.tiamosu.fly.utils.ActivityUtils
 
 val Fragment.navController: NavController
     get() = NavHostFragment.findNavController(this)

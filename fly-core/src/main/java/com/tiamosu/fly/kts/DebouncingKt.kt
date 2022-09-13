@@ -1,6 +1,6 @@
 package com.tiamosu.fly.kts
 
-import com.blankj.utilcode.util.DebouncingUtils
+import com.tiamosu.fly.utils.DebouncingUtils
 
 /**
  * @author tiamosu

@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.blankj.utilcode.util.Utils
+import com.tiamosu.fly.kts.appContext
 import com.tiamosu.fly.viewbinding.bind.*
 import com.tiamosu.fly.viewbinding.kts.bindMethod
 
@@ -18,7 +18,7 @@ import com.tiamosu.fly.viewbinding.kts.bindMethod
  * @date 2022/7/11.
  */
 
-val layoutInflater: LayoutInflater by lazy { LayoutInflater.from(Utils.getApp()) }
+val layoutInflater: LayoutInflater by lazy { LayoutInflater.from(appContext) }
 
 /**
  * Create bindings for a view similar to bindView.

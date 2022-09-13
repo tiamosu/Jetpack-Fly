@@ -10,9 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
-import com.blankj.utilcode.util.ActivityUtils
-import com.blankj.utilcode.util.ViewUtils
 import com.tiamosu.fly.delegate.IFlySupportDialogFragment
+import com.tiamosu.fly.utils.ActivityUtils
+import com.tiamosu.fly.utils.ViewUtils
 
 /**
  * @author ti

@@ -33,5 +33,10 @@
         <meta-data
             android:name="android.notch_support"
             android:value="true" />
+
+        <provider
+            android:name=".kts.AppContentProvider"
+            android:authorities="${applicationId}.AppKt"
+            android:exported="false" />
     </application>
 </manifest>

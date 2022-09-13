@@ -25,14 +25,13 @@ import android.view.WindowManager
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.getSystemService
-import com.blankj.utilcode.util.Utils
 
 /**
  * @author ti
  * @date 2022/7/6.
  */
 
-inline fun <reified T> getSystemService(): T? = Utils.getApp().getSystemService()
+inline fun <reified T> getSystemService(): T? = appContext.getSystemService()
 
 val windowManager by lazy { getSystemService<WindowManager>() }
 val clipboardManager by lazy { getSystemService<ClipboardManager>() }

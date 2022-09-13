@@ -49,4 +49,7 @@ dependencies {
 
     //dispatcher
     implementation Deps.dispatcher
+
+    //utilcode
+    implementation Deps.utilcode
 }

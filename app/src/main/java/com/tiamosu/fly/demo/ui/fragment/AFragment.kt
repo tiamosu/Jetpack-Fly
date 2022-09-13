@@ -6,7 +6,6 @@ import com.tiamosu.fly.demo.base.BaseFragment
 import com.tiamosu.fly.kts.clickNoRepeat
 import com.tiamosu.fly.navigation.navigator
 import com.tiamosu.fly.navigation.pop
-import com.tiamosu.fly.navigation.start
 import com.tiamosu.fly.navigation.startWithPopTo
 import com.tiamosu.fly.viewbinding.viewBinding
 
