@@ -8,7 +8,7 @@
     tools:ignore="all">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/mavericks_btnCount"
+        android:id="@+id/mvi_btnCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Counter"

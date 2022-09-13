@@ -1,8 +1,7 @@
 package com.tiamosu.fly.demo
 
-import com.airbnb.mvrx.Mavericks
 import com.tiamosu.fly.FlySupportApplication
-import com.tiamosu.fly.demo.bridge.SharedViewModel
+import com.tiamosu.fly.demo.domain.message.PageMessenger
 import com.tiamosu.fly.kts.appViewModel
 
 /**
@@ -10,12 +9,6 @@ import com.tiamosu.fly.kts.appViewModel
  * @date 2022/7/18.
  */
 
-val sharedViewModel by appViewModel<SharedViewModel>()
+val pageMessenger by appViewModel<PageMessenger>()
 
-class MyApp : FlySupportApplication() {
-
-    override fun onCreate() {
-        super.onCreate()
-        Mavericks.initialize(this)
-    }
-}
+class MyApp : FlySupportApplication()

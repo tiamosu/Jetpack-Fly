@@ -25,7 +25,7 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = JavaVersion.VERSION_11
     }
     buildFeatures {
         viewBinding = true
@@ -47,9 +47,6 @@ dependencies {
     //brvah
     implementation Deps.brvah
 
-    //unpeek_livedata
-    implementation Deps.unpeek_livedata
-
-    //mavericks
-    implementation Deps.mavericks
+    //dispatcher
+    implementation Deps.dispatcher
 }

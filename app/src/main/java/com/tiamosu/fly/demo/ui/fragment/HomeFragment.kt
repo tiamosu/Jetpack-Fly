@@ -45,7 +45,7 @@ class HomeFragment : BaseFragment() {
                 ) {
                     ToastUtils.showLong(it.toString())
                 }
-                ActionType.MAVERICKS.type -> navigator.start(R.id.mavericksFragment)
+                ActionType.MVI_DISPATCHER.type -> navigator.start(R.id.mviFragment)
                 ActionType.VIEW_BINDING.type -> navigator.start(R.id.bindingFragment)
                 ActionType.DIALOG_FRAGMENT.type -> MyDialogFragment.showDialog(context)
                 ActionType.SHARED.type -> navigator.start(R.id.sharedFragment)
@@ -57,7 +57,7 @@ class HomeFragment : BaseFragment() {
         mutableListOf<HomeEntity>().apply {
             add(HomeEntity(ActionType.NAVIGATION.type, "Navigation"))
             add(HomeEntity(ActionType.ACTIVITY_RESULT.type, "ActivityResult"))
-            add(HomeEntity(ActionType.MAVERICKS.type, "Mavericks MVI"))
+            add(HomeEntity(ActionType.MVI_DISPATCHER.type, "MVI-Dispatcher"))
             add(HomeEntity(ActionType.VIEW_BINDING.type, "ViewBinding"))
             add(HomeEntity(ActionType.DIALOG_FRAGMENT.type, "DialogFragment"))
             add(HomeEntity(ActionType.SHARED.type, "SharedViewModel"))

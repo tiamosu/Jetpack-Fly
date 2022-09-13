@@ -1,9 +1,9 @@
 @file:Suppress("unused", "SpellCheckingInspection")
 
 object Android {
-    const val compileSdk = 33
+    const val compileSdk = 32
     const val minSdk = 21
-    const val targetSdk = 33
+    const val targetSdk = 32
 
     const val versionName = "1.0.0"
     const val versionCode = 10000
@@ -12,9 +12,8 @@ object Android {
 object Versions {
     const val kotlin = "1.7.10"
     const val utilcode = "1.31.0"
-    const val brvah = "3.0.7"
-    const val unpeeklivedata = "7.6.0"
-    const val mavericks = "2.7.0"
+    const val brvah = "3.0.8"
+    const val dispatcher = "7.4.0-beta"
 }
 
 object Deps {
@@ -22,7 +21,7 @@ object Deps {
     const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
 
     //androidx
-    const val core_ktx = "androidx.core:core-ktx:1.9.0"
+    const val core_ktx = "androidx.core:core-ktx:1.8.0"
     const val appcompat = "androidx.appcompat:appcompat:1.5.1"
     const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
     const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
@@ -46,9 +45,6 @@ object Deps {
     //brvah
     const val brvah = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Versions.brvah}"
 
-    //UnPeekLiveData
-    const val unpeek_livedata = "com.kunminx.arch:unpeek-livedata:${Versions.unpeeklivedata}"
-
-    //mavericks
-    const val mavericks = "com.airbnb.android:mavericks:${Versions.mavericks}"
+    //dispatcher 唯一可信源框架 https://github.com/KunMinX/MVI-Dispatcher
+    const val dispatcher = "com.kunminx.arch:mvi-dispatch:${Versions.dispatcher}"
 }

@@ -21,9 +21,9 @@
         tools:layout="@layout/fragment_b" />
 
     <fragment
-        android:id="@+id/mavericksFragment"
-        android:name="com.tiamosu.fly.demo.ui.fragment.MavericksFragment"
-        tools:layout="@layout/fragment_mavericks" />
+        android:id="@+id/mviFragment"
+        android:name="com.tiamosu.fly.demo.ui.fragment.MviFragment"
+        tools:layout="@layout/fragment_mvi" />
 
     <fragment
         android:id="@+id/bindingFragment"

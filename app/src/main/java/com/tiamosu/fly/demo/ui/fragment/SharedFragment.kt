@@ -3,7 +3,8 @@ package com.tiamosu.fly.demo.ui.fragment
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentSharedBinding
 import com.tiamosu.fly.demo.base.BaseFragment
-import com.tiamosu.fly.demo.sharedViewModel
+import com.tiamosu.fly.demo.domain.event.Messages
+import com.tiamosu.fly.demo.pageMessenger
 import com.tiamosu.fly.kts.clickNoRepeat
 import com.tiamosu.fly.viewbinding.viewBinding
 
@@ -19,9 +20,10 @@ class SharedFragment : BaseFragment() {
     }
 
     override fun initEvent() {
-        binding?.sharedBtnShare?.clickNoRepeat {
-            val state = sharedViewModel.updateState.value ?: false
-            sharedViewModel.updateState.value = !state
+        binding?.sharedBtnShare?.clickNoRepeat(interval = 0) {
+            pageMessenger.input(Messages.UpdateState.apply {
+                isTurnOn = !isTurnOn
+            })
         }
     }
 }

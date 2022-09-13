@@ -6,9 +6,10 @@ import com.blankj.utilcode.util.ToastUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.FragmentMainBinding
 import com.tiamosu.fly.demo.base.BaseFragment
+import com.tiamosu.fly.demo.domain.event.Messages
 import com.tiamosu.fly.demo.kts.HandleFragment
 import com.tiamosu.fly.demo.kts.init
-import com.tiamosu.fly.demo.sharedViewModel
+import com.tiamosu.fly.demo.pageMessenger
 import com.tiamosu.fly.viewbinding.dataBinding
 
 /**
@@ -37,8 +38,11 @@ class MainFragment : BaseFragment() {
     }
 
     override fun initObserver() {
-        sharedViewModel.updateState.observe(this) {
-            ToastUtils.showLong("state：${if (it) "on" else "off"}")
+        pageMessenger.output(this) { intent ->
+            if (intent is Messages.UpdateState) {
+                val state = "state：${if (intent.isTurnOn) "on" else "off"}"
+                ToastUtils.showShort(state)
+            }
         }
     }
 

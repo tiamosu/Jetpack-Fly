@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tiamosu.fly">
 
-    <uses-sdk tools:overrideLibrary="com.kunminx.unpeeklivedata" />
+    <uses-sdk tools:overrideLibrary="com.kunminx.dispatch" />
 
     <application
         android:name=".demo.MyApp"
