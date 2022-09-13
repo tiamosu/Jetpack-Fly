@@ -1,3 +1,9 @@
+# 新版本 1.1.9
+
+* 移除 utilcode 第三方库
+* 新增 appContext 全局上下文
+* 新增 ActivityUtils、BarUtils、DebouncingUtils、KeyboardUtils、ViewUtils 等工具类
+
 # 新版本 1.1.8
 
 * appcompat = "1.5.1"
