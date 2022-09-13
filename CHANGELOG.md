@@ -1,3 +1,10 @@
+# 新版本 1.1.8
+
+* appcompat = "1.5.1"
+* navigation_runtime = "2.5.2"
+* 新增 mvi-dispatcher 使用案例
+* 移除 unpeek_livedata、mavericks 使用案例
+
 # 新版本 1.1.7
 
 * appcompat:1.5.0
