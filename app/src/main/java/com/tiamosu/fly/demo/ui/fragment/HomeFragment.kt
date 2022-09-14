@@ -1,5 +1,6 @@
 package com.tiamosu.fly.demo.ui.fragment
 
+import android.util.Log
 import androidx.core.view.updateLayoutParams
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.IntentUtils
@@ -53,7 +54,17 @@ class HomeFragment : BaseFragment() {
         }
     }
 
+    override fun onSupportVisible() {
+        Log.e("susu", "onSupportVisible:${isSupportVisible()}")
+    }
+
+    override fun onSupportInvisible() {
+        Log.e("susu", "onSupportInvisible:${isSupportVisible()}")
+    }
+
     override fun onLazyLoad() {
+        Log.e("susu", "onLazyLoad:${isSupportVisible()}")
+
         mutableListOf<HomeEntity>().apply {
             add(HomeEntity(ActionType.NAVIGATION.type, "Navigation"))
             add(HomeEntity(ActionType.ACTIVITY_RESULT.type, "ActivityResult"))

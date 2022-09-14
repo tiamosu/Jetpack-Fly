@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
  */
 class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
     private val fragment by lazy { checkNotNull(iFlySupport as? Fragment) }
+    private val visibleDelegate by lazy { FlyVisibleDelegate(iFlySupport) }
 
     private var isAnimationEnd = false      //转场动画加载完毕
     private var isCreateAnimation = false   //是否有执行转场动画
@@ -67,11 +68,12 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
         }
     }
 
-    //延迟加载，防止动画还未执行完毕紧接着加载数据，导致页面渲染卡顿
-    private fun startLazyLoadData() {
-        if (!fragment.isResumed || (isCreateAnimation && !isAnimationEnd) || isLazyLoaded) return
-        isLazyLoaded = true
-        iFlySupport.onLazyLoad()
+    fun onResume() {
+        visibleDelegate.onResume()
+    }
+
+    fun onPause() {
+        visibleDelegate.onPause()
     }
 
     fun onDestroyView() {
@@ -79,5 +81,15 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
         isCreateAnimation = false
         isLazyLoaded = false
         iFlySupport.removeCallbacks()
+        visibleDelegate.onDestroyView()
+    }
+
+    fun isSupportVisible() = visibleDelegate.isSupportVisible()
+
+    //延迟加载，防止动画还未执行完毕紧接着加载数据，导致页面渲染卡顿
+    private fun startLazyLoadData() {
+        if (!fragment.isResumed || (isCreateAnimation && !isAnimationEnd) || isLazyLoaded) return
+        isLazyLoaded = true
+        iFlySupport.onLazyLoad()
     }
 }

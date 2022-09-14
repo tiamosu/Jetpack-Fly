@@ -67,6 +67,26 @@ abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
         return delegate.onCreateAnimation(enter, nextAnim)
     }
 
+    override fun onSupportVisible() {
+    }
+
+    override fun onSupportInvisible() {
+    }
+
+    override fun isSupportVisible(): Boolean {
+        return delegate.isSupportVisible()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        delegate.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        delegate.onPause()
+    }
+
     override fun onDestroyView() {
         delegate.onDestroyView()
         super.onDestroyView()
