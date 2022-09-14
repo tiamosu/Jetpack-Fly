@@ -1,3 +1,7 @@
+# 新版本 1.2.0
+
+* Fragment 可见性调整，新增onSupportVisible、onSupportInvisible函数及isSupportVisible可见性判断
+
 # 新版本 1.1.9
 
 * 移除 utilcode 第三方库
