@@ -43,7 +43,7 @@ implementation 'com.gitee.tiamosu:jfly-navigation:1.2.0'
   修改版冲突，示例如下：
 
 ```groovy
-implementation("androidx.navigation:navigation-fragment-ktx:2.5.0") {
+implementation("androidx.navigation:navigation-fragment-ktx:2.5.2") {
     exclude group: 'androidx.navigation', module: "navigation-fragment"
 }
 ```
