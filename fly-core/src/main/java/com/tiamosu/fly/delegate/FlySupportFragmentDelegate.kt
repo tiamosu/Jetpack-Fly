@@ -85,7 +85,7 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
 
     //延迟加载，防止动画还未执行完毕紧接着加载数据，导致页面渲染卡顿
     internal fun startLazyLoadData() {
-        if (!fragment.isResumed || (isCreateAnimation && !isAnimationEnd) || isLazyLoaded) return
+        if (!isSupportVisible() || (isCreateAnimation && !isAnimationEnd) || isLazyLoaded) return
         isLazyLoaded = true
         iFlySupport.onLazyLoad()
     }
