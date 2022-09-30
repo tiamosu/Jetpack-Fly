@@ -5,16 +5,10 @@ apply {
     from "${rootDir.path}/config/config_lib.gradle"
 }
 
-android {
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
-}
-
 dependencies {
     implementation project(path: ':fly-core')
     implementation Deps.recyclerview
+    implementation Deps.databinding_runtime
 }
 
 apply from: "${rootDir.path}/publish/publish.gradle"

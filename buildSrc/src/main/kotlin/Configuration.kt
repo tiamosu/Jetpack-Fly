@@ -12,7 +12,7 @@ object Android {
 object Versions {
     const val kotlin = "1.7.10"
     const val utilcode = "1.31.0"
-    const val brvah = "3.0.8"
+    const val brvah = "3.0.9"
     const val dispatcher = "7.4.0-beta"
 }
 
@@ -27,10 +27,11 @@ object Deps {
     const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
     const val material = "com.google.android.material:material:1.6.1"
+    const val databinding_runtime = "androidx.databinding:databinding-runtime:7.3.0"
 
     //navigation
-    const val fragment = "androidx.fragment:fragment:1.5.2"
-    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.2"
+    const val fragment = "androidx.fragment:fragment:1.5.3"
+    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.3"
     const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.2"
     const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.2"
 
