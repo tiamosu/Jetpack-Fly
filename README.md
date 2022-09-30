@@ -76,9 +76,6 @@ dependencies {
     api Deps.lifecycle_runtime_ktx
     api Deps.lifecycle_livedata_ktx
     api Deps.lifecycle_viewmodel_ktx
-
-    //utilcode
-    api Deps.utilcode
 }
 ```
 
