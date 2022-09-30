@@ -1,3 +1,8 @@
+# 新版本 1.2.2
+
+* fragment 1.5.3
+* 修改 gradle 对 dataBinding 的引用
+
 # 新版本 1.2.0
 
 * Fragment 可见性调整，新增onSupportVisible、onSupportInvisible函数及isSupportVisible可见性判断
