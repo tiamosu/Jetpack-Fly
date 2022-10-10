@@ -64,7 +64,7 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
         if (event.action == MotionEvent.ACTION_DOWN
             && isShouldHideKeyboard(activity.currentFocus, event)
         ) {
-            clickBlankArea()
+            iFlySupport.clickBlankArea()
         }
     }
 
