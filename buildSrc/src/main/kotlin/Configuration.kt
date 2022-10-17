@@ -11,7 +11,7 @@ object Android {
 
 object Versions {
     const val kotlin = "1.7.10"
-    const val utilcode = "1.31.0"
+    const val utilcode = "1.31.1"
     const val brvah = "3.0.9"
     const val dispatcher = "7.4.0-beta"
 }
