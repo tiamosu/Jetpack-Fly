@@ -1,6 +1,7 @@
 package com.tiamosu.fly.demo.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import com.blankj.utilcode.util.ActivityUtils
 import com.tiamosu.fly.R
 import com.tiamosu.fly.databinding.ActivityLaunchBinding
@@ -18,6 +19,10 @@ class LaunchActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
+    }
+
+    override fun initCreate() {
+        Log.e("susu", "initCreate")
     }
 
     override fun getLayoutId(): Int {
