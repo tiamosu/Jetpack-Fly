@@ -24,6 +24,7 @@ class FlySupportActivityDelegate(private val iFlySupport: IFlySupportActivity) :
     }
 
     fun onCreate() {
+        iFlySupport.initCreate()
         iFlySupport.setContentView()
         iFlySupport.initActivity()
     }
