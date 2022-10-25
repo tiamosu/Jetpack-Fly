@@ -1,3 +1,8 @@
+# 新版本 1.2.4
+
+* databinding_runtime = "7.3.1"
+* Activity 新增 initCreate 函数
+
 # 新版本 1.2.3
 
 * 优化：点击空白区域，默认隐藏软键盘
