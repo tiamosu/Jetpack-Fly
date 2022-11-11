@@ -30,10 +30,10 @@ object Deps {
     const val databinding_runtime = "androidx.databinding:databinding-runtime:7.3.1"
 
     //navigation
-    const val fragment = "androidx.fragment:fragment:1.5.3"
-    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.3"
-    const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.2"
-    const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.2"
+    const val fragment = "androidx.fragment:fragment:1.5.4"
+    const val fragment_ktx = "androidx.fragment:fragment-ktx:1.5.4"
+    const val navigation_runtime = "androidx.navigation:navigation-runtime:2.5.3"
+    const val navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:2.5.3"
 
     //lifecycle
     const val lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
