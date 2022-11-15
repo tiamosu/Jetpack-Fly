@@ -29,13 +29,13 @@ allprojects {
 ### jfly-core（必选）
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-core:1.2.4'
+implementation 'com.gitee.tiamosu:jfly-core:1.2.5'
 ```
 
 ### jfly-navigation（可选）
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-navigation:1.2.4'
+implementation 'com.gitee.tiamosu:jfly-navigation:1.2.5'
 ```
 
 * 需排除本地或第三方依赖中的
@@ -43,7 +43,7 @@ implementation 'com.gitee.tiamosu:jfly-navigation:1.2.4'
   修改版冲突，示例如下：
 
 ```groovy
-implementation("androidx.navigation:navigation-fragment-ktx:2.5.2") {
+implementation("androidx.navigation:navigation-fragment-ktx:2.5.3") {
     exclude group: 'androidx.navigation', module: "navigation-fragment"
 }
 ```
@@ -51,7 +51,7 @@ implementation("androidx.navigation:navigation-fragment-ktx:2.5.2") {
 ### jfly-viewbinding（可选）
 
 ```groovy
-implementation 'com.gitee.tiamosu:jfly-viewbinding:1.2.4'
+implementation 'com.gitee.tiamosu:jfly-viewbinding:1.2.5'
 
 android {
     buildFeatures {

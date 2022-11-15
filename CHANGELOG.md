@@ -1,3 +1,8 @@
+# 新版本 1.2.5
+
+* fragment:1.5.3
+* navigation-fragment-ktx:2.5.3
+
 # 新版本 1.2.4
 
 * databinding_runtime = "7.3.1"
