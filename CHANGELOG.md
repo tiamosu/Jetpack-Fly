@@ -1,3 +1,7 @@
+# 新版本 1.2.6
+
+* 新增launchWhenLazyResumed 扩展函数，使用方式类似于 launchWhenResumed，于 onLazyLoad 之后触发
+
 # 新版本 1.2.5
 
 * fragment:1.5.3
