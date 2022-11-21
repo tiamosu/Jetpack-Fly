@@ -80,6 +80,7 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
         isLazyLoaded = false
         iFlySupport.removeCallbacks()
         visibleDelegate.onDestroyView()
+        lazyResumedRunnableList.clear()
     }
 
     fun isSupportVisible() = visibleDelegate.isSupportVisible()
