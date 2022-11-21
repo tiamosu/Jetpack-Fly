@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
     private val fragment by lazy { checkNotNull(iFlySupport as? Fragment) }
     private val visibleDelegate by lazy { FlyVisibleDelegate(iFlySupport, this) }
+    private val lazyResumedRunnableList by lazy { mutableListOf<Runnable>() }
 
     private var isAnimationEnd = false      //转场动画加载完毕
     private var isCreateAnimation = false   //是否有执行转场动画
@@ -88,5 +89,21 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
         if (!isSupportVisible() || (isCreateAnimation && !isAnimationEnd) || isLazyLoaded) return
         isLazyLoaded = true
         iFlySupport.onLazyLoad()
+
+        if (lazyResumedRunnableList.isNotEmpty()) {
+            lazyResumedRunnableList.forEach { it.run() }
+            lazyResumedRunnableList.clear()
+        }
+    }
+
+    /**
+     * 延迟加载处理回调
+     */
+    fun launchWhenLazyResumedHandle(runnable: Runnable) {
+        if (isLazyLoaded) {
+            runnable.run()
+            return
+        }
+        lazyResumedRunnableList.add(runnable)
     }
 }

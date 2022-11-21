@@ -2,6 +2,7 @@ package com.tiamosu.fly.demo.ui.fragment
 
 import android.util.Log
 import androidx.core.view.updateLayoutParams
+import androidx.lifecycle.lifecycleScope
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.IntentUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -14,6 +15,7 @@ import com.tiamosu.fly.demo.kts.init
 import com.tiamosu.fly.demo.kts.statusBarHeight
 import com.tiamosu.fly.demo.ui.adapter.HomeAdapter
 import com.tiamosu.fly.demo.ui.dialog.MyDialogFragment
+import com.tiamosu.fly.kts.launchWhenLazyResumed
 import com.tiamosu.fly.kts.startForActivityResult
 import com.tiamosu.fly.navigation.navigator
 import com.tiamosu.fly.navigation.start
@@ -34,6 +36,17 @@ class HomeFragment : BaseFragment() {
     override fun initView() {
         binding?.homeViewTitleBar?.updateLayoutParams { height = statusBarHeight }
         binding?.homeRv?.init(bindAdapter = adapter)
+
+        lifecycleScope.launchWhenResumed {
+            Log.e("susu2", "launchWhenResumed")
+        }
+
+        launchWhenLazyResumed {
+            Log.e("susu2", "launchWhenLazyResumed")
+        }
+        launchWhenLazyResumed {
+            Log.e("susu2", "launchWhenLazyResumed2")
+        }
     }
 
     override fun initEvent() {
@@ -54,8 +67,13 @@ class HomeFragment : BaseFragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.e("susu2", "onResume")
+    }
+
     override fun onSupportVisible() {
-        Log.e("susu", "onSupportVisible:${isSupportVisible()}")
+        Log.e("susu2", "onSupportVisible:${isSupportVisible()}")
     }
 
     override fun onSupportInvisible() {
@@ -63,7 +81,11 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun onLazyLoad() {
-        Log.e("susu", "onLazyLoad:${isSupportVisible()}")
+        Log.e("susu2", "onLazyLoad:${isSupportVisible()}")
+
+        launchWhenLazyResumed {
+            Log.e("susu2", "launchWhenLazyResumed --- onLazyLoad")
+        }
 
         mutableListOf<HomeEntity>().apply {
             add(HomeEntity(ActionType.NAVIGATION.type, "Navigation"))

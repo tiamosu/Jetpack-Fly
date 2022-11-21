@@ -93,6 +93,13 @@ abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
     }
 
     /**
+     * 延迟加载处理回调
+     */
+    internal fun launchWhenLazyResumedHandle(runnable: Runnable) {
+        delegate.launchWhenLazyResumedHandle(runnable)
+    }
+
+    /**
      * 页面回退处理
      */
     override fun onBackPressedSupport() = false

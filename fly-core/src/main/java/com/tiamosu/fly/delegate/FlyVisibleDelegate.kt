@@ -1,5 +1,8 @@
 package com.tiamosu.fly.delegate
 
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+
 /**
  * @author ti
  * @date 2022/9/14.
@@ -14,7 +17,10 @@ class FlyVisibleDelegate(
         if (isSupportVisible) return
         isSupportVisible = true
         iFlySupport.onSupportVisible()
-        fragmentDelegate.startLazyLoadData()
+
+        (iFlySupport as? Fragment)?.lifecycleScope?.launchWhenResumed {
+            fragmentDelegate.startLazyLoadData()
+        }
     }
 
     fun onPause() {
