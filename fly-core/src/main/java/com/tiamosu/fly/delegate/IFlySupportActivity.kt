@@ -16,7 +16,7 @@ interface IFlySupportActivity : ScenesAction,
     /**
      * 初始化，置于[setContentView] 之前
      */
-    fun initCreate() {}
+    fun initCreate()
 
     //设置布局视图
     fun setContentView(): View?

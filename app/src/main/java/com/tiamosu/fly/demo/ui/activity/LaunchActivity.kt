@@ -22,6 +22,7 @@ class LaunchActivity : BaseActivity() {
     }
 
     override fun initCreate() {
+        super.initCreate()
         Log.e("susu", "initCreate")
     }
 
