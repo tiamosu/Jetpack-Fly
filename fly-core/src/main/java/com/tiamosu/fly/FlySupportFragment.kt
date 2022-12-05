@@ -32,11 +32,6 @@ abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
         activity = context as AppCompatActivity
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        delegate.onViewCreated()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,14 +48,27 @@ abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return delegate.setContentView(inflater, container)
+        val layoutId = getLayoutId()
+        return when {
+            layoutId > 0 -> inflater.inflate(layoutId, container, false)
+            else -> null
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initFragment()
     }
 
     /**
      * 相关函数初始化
      */
     override fun initFragment() {
-        delegate.initFragment()
+        initParameter(bundle)
+        initView()
+        initEvent()
+        initObserver()
+        loadData()
     }
 
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {

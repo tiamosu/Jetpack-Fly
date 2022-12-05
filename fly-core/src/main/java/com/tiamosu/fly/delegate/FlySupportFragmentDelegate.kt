@@ -1,8 +1,5 @@
 package com.tiamosu.fly.delegate
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
@@ -19,28 +16,6 @@ class FlySupportFragmentDelegate(private val iFlySupport: IFlySupportFragment) {
     private var isAnimationEnd = false      //转场动画加载完毕
     private var isCreateAnimation = false   //是否有执行转场动画
     private var isLazyLoaded = false        //是否执行完懒加载函数
-
-    fun onViewCreated() {
-        iFlySupport.initFragment()
-    }
-
-    fun setContentView(inflater: LayoutInflater, container: ViewGroup?): View? {
-        val layoutId = iFlySupport.getLayoutId()
-        return when {
-            layoutId > 0 -> inflater.inflate(layoutId, container, false)
-            else -> null
-        }
-    }
-
-    fun initFragment() {
-        iFlySupport.apply {
-            initParameter(bundle)
-            initView()
-            initEvent()
-            initObserver()
-            loadData()
-        }
-    }
 
     fun onCreateAnimation(enter: Boolean, nextAnim: Int): Animation? {
         isCreateAnimation = true
