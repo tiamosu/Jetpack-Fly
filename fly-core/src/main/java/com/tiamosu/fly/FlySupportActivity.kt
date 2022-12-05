@@ -51,6 +51,7 @@ abstract class FlySupportActivity : AppCompatActivity(), IFlySupportActivity {
     /**
      * 相关函数初始化
      */
+    @CallSuper
     override fun initActivity() {
         initParameter(bundle)
         initView()

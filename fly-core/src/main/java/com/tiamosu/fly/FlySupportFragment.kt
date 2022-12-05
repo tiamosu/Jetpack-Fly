@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.tiamosu.fly.delegate.ActivityResultDelegate
@@ -63,6 +64,7 @@ abstract class FlySupportFragment : Fragment(), IFlySupportFragment {
     /**
      * 相关函数初始化
      */
+    @CallSuper
     override fun initFragment() {
         initParameter(bundle)
         initView()
